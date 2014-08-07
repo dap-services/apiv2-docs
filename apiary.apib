@@ -122,7 +122,10 @@ Registrace uživatele. Výsledkem je user_id a url pro přístup k profilu uživ
 
 Operace pro vytvoření uživatele.
 
+200 se vrací v případě korektního http požadavku - nejsou ale splněny požadavky na vstupní json (validace vstupu).
+
 + Request (application/json)
+
     + Headers
 
             Accept: application/json
@@ -145,8 +148,6 @@ Operace pro vytvoření uživatele.
 
 + Response 200 (application/json)
 
-200 se vrací v případě korektního http požadavku - nejsou ale splněny požadavky na vstupní json (validace vstupu).
-
     + Headers
 
             Accept: application/json
@@ -162,8 +163,6 @@ Operace pro vytvoření uživatele.
 
 + Response 201 (application/json)
 
-Uživatel byl vytvořen.
-
     + Headers
 
             Accept: application/json
@@ -178,7 +177,7 @@ Uživatel byl vytvořen.
 
 # Potvrzení registrace uživatele [/account/registration/confirm]
 
-Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (pravděpodobně do emailu v potvrzovacím linku).
+Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (pravděpodobně do emailu v potvrzovacím linku). V případě, že požadavek není validní - neexistující klíč, uživatel je již aktivovaný se vrací error json.
 
 > TODO Pravděpodobně samostatný resource pro app
 
@@ -187,6 +186,7 @@ Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (p
 Potvrzení registrace.
 
 + Request (application/json)
+
     + Headers
 
             Accept: application/json
@@ -198,6 +198,7 @@ Potvrzení registrace.
             }
 
 + Response 200 (application/json)
+
     + Headers
 
             Accept: application/json
@@ -210,8 +211,6 @@ Potvrzení registrace.
             }
 
 + Response 200 (application/json)
-
-V případě, že požadavek není validní - neexistující klíč, uživatel je již aktivovaný.
 
     + Headers
 
@@ -237,6 +236,7 @@ Práce se školeními uživatele. Autorizovaný resource.
 Seznam školení uživatele.
 
 + Response 200 (application/json)
+
     + Headers
 
             Accept: application/json
@@ -263,6 +263,7 @@ Seznam školení uživatele.
 Objednání školení uživatele. Výsledkem je odeslání emailu administrátorovi s žádostí o školení.
 
 + Request (application/json)
+
     + Headers
 
             Accept: application/json
