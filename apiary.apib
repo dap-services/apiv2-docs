@@ -1,0 +1,170 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# DAP Services a.s. API, version 2
+
+API verze 2. Opřeno o model3.
+
+##Allowed HTTPs requests:
+
+- `POST` - Creates or updates a resource
+- `PUT` - Updates a resource
+- `GET` - Retrieves a resource or list of resources
+- `DELETE` - Delete a resource
+
+##Typical Server Responses
+
+- 200 `OK` - The request was successful (some API calls may return 201 instead).
+- 201 `Created` - The request was successful and a resource was created.
+- 204 `No Content` - The request was successful but there is no representation to return (that is, the response is empty).
+- 400 `Bad Request` - The request could not be understood or was missing required parameters.
+- 401 `Unauthorized` - Authentication failed or user does not have permissions for the requested operation.
+- 403 `Forbidden` - Access denied.
+- 404 `Not Found` - Resource was not found.
+- 405 `Method Not Allowed` - Requested method is not supported for the specified resource.
+- 429 `Too Many Requests` - Exceeded GoodData API limits. Pause requests, wait one minute, and try again.
+- 503 `Service Unavailable` - The service is temporary unavailable (e.g. scheduled Platform Maintenance). Try again later.
+
+# API root [/]
+
+Bez atributů, vrací `403`.
+
+## Požadavek na root [GET]
+
++ Response 403
+
+# Group Account
+
+Práce s účtem uživatele.
+
+# Přihlašování do API [/account/login]
+
+Autentizace. Všechny http metody kromě **POST** vrací http status code `405`.
+
+## Přihlášení [POST]
+
+Přihlašování.
+
+Seznam json atributů:
+
+- username (required, string) - uživatelské jméno
+- password (required, string) - heslo
+- app_id (required, string) - id aplikace, do které se uživatel přihlašuje.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "username": "user@yourdomain.com",
+                "password": "good_password",
+                "app_id": "APPID"
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "required": true,
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "app_id": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            }
+
++ Response 200 (application/json)
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "user_id": 12312334,
+                "profile": "/account/profile/{user_id}",
+                "token": "security_token"
+            }
+
++ Response 401 (application/json)
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "error": {
+                    "message": "Chybové hlášení pro autentizaci.",
+                    "error_code": "error.code.login.badUserName"
+                }
+            }
+
+# Registrace uživatele [/account/registration]
+
+Registrace uživatele. Výsledkem je user_id a url pro přístup k profilu uživatele.
+
+> Pravděpodobně samostatný resource - specifická emailová fčnost (confirmation flow)
+
+## Operation [POST]
+
+Operace pro vytvoření uživatele.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "first_name": "first_name",
+                "last_name": "last_name",
+                "company_name": "company_name",
+                "email": "email",
+                "country_code": "ISO country code",
+                "language_code": "ISO language code",
+                "phone_number": "phone_number",
+                "login": "login_name",
+                "password": "PASSWORD",
+                "verify_password": "PASSWORD",
+                "vat_number": "vat_number"
+            }
+
++ Response 200 (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "user_id": 12312334,
+                "profile": "/account/profile/{user_id}"
+            }
+
++ Response 401 (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "error": {
+                    "message": "Chybové hlášení pro vytvoření uživatele.",
+                    "error_code": "error.code.registration"
+                }
+            }
