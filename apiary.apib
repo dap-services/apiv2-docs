@@ -41,7 +41,7 @@ Práce s účtem uživatele.
 
 Autentizace. Všechny http metody kromě **POST** vrací http status code `405`.
 
-## Přihlášení [POST]
+## [POST]
 
 Přihlašování.
 
@@ -116,9 +116,66 @@ Seznam json atributů:
 
 Registrace uživatele. Výsledkem je user_id a url pro přístup k profilu uživatele.
 
-> Pravděpodobně samostatný resource - specifická emailová fčnost (confirmation flow)
+> TODO Pravděpodobně samostatný resource - specifická emailová fčnost (confirmation flow)
 
 ## Operation [POST]
+
+Operace pro vytvoření uživatele.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "first_name": "first_name",
+                "last_name": "last_name",
+                "company_name": "company_name",
+                "email": "email",
+                "country_code": "ISO country code",
+                "language_code": "ISO language code",
+                "phone_number": "phone_number",
+                "login": "login_name",
+                "password": "PASSWORD",
+                "verify_password": "PASSWORD",
+                "vat_number": "vat_number"
+            }
+
++ Response 200 (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "user_id": 12312334,
+                "profile": "/account/profile/{user_id}"
+            }
+
++ Response 401 (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "error": {
+                    "message": "Chybové hlášení pro vytvoření uživatele.",
+                    "error_code": "error.code.registration"
+                }
+            }
+
+# Potvrzení registrace uživatele [/account/registration/confirm]
+
+Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (pravděpodobně do emailu v potvrzovacím linku).
+
+> TODO Pravděpodobně samostatný resource - specifická emailová fčnost (confirmation flow)
+
+##  [POST]
 
 Operace pro vytvoření uživatele.
 
