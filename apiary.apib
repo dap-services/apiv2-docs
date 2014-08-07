@@ -146,7 +146,21 @@ Operace pro vytvoření uživatele.
                 "vat_number": "vat_number"
             }
 
+
 + Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "user_id": 12312334,
+                "profile": "/account/profile/{user_id}"
+            }
+
++ Response 400 (application/json)
 
     + Headers
 
@@ -159,19 +173,6 @@ Operace pro vytvoření uživatele.
                     "message": "Chybové hlášení pro vytvoření uživatele.",
                     "error_code": "error.code.registration"
                 }
-            }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-            {
-                "user_id": 12312334,
-                "profile": "/account/profile/{user_id}"
             }
 
 
