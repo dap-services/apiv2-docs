@@ -225,3 +225,52 @@ V případě, že požadavek není validní - neexistující klíč, uživatel j
                     "error_code": "error.code.registration.confirm"
                 }
             }
+
+# Seznam školení (tréninků) uživatele [/account/{user_id}/trainings]
+
+Práce se školeními uživatele. Autorizovaný resource.
+
+> TODO Pravděpodobně samostatný resource pro app
+
+## GET
+
+Seznam školení uživatele.
+
++ Response 200 (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "trainings": [
+                    {
+                        "id": 1,
+                        "name": "nls.training.name.key",
+                        "status": "NOT_ORDERED | ORDERED"
+                    },
+                    {
+                        "id": 2,
+                        "name": "nls.training.name.key",
+                        "status": "NOT_ORDERED | ORDERED"
+                    }
+                ]
+            }
+
+## POST
+
+Objednání školení uživatele. Výsledkem je odeslání emailu administrátorovi s žádostí o školení.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "training_ids": [1, 3, 8]
+            }
+
++ Response 204
