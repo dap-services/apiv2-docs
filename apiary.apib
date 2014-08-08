@@ -227,6 +227,22 @@ Potvrzení registrace.
                 }
             }
 
++ Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Accept-language: en
+
+    + Body
+
+            {
+                "error": {
+                    "message": "en",
+                    "error_code": "error.code.registration.confirm.en"
+                }
+            }
+
 # Seznam školení uživatele [/account/{user_id}/trainings]
 
 Práce se školeními uživatele. Autorizovaný resource.
