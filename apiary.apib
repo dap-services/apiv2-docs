@@ -276,3 +276,20 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
             }
 
 + Response 204
+
+## Tests Collection [/tests]
+### List all Tests [GET]
++ Response 200 (application/json)
+
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            X-Authorization: security_token
+            
+    + Body
+
+            [{
+                "id": 1, "title": "Jogging in park"
+            }, {
+                "id": 2, "title": "Pick-up posters from post-office"
+            }]
