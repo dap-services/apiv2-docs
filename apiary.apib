@@ -277,3 +277,42 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
             }
 
 + Response 204
+
+## Languages Collection [/language]
+### List all Languages [GET]
++ Response 200 (application/json)
+
+    + Header
+    
+            Accept: application/json
+            
+    + Body
+
+            [{
+                "name": "USA",
+                "id": 1
+            },{
+                "name": "Canada",
+                "id": 2
+            }]
+            
+## Countries Collection [/country]
+### List all Countries [GET]
++ Response 200 (application/json)
+
+    + Header
+    
+            Accept: application/json
+            
+    + Body
+
+            [{
+                "name": "EN",
+                "id": 1
+            }, {
+                "name": "DE",
+                "id": 2
+            }, {
+                "name": "CZE",
+                "id": 3
+            }]
