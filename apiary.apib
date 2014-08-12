@@ -227,10 +227,10 @@ Potvrzení registrace.
                     "error_code": "error.code.registration.confirm"
                 }
             }
-
+			
 ## GET
 
-# Operace pro zobrazení uživatele. [/account/{email}]	
+# Operace pro zobrazení uživatele. [/account/{user_id}] 
  
 + Request (application/json)
 
@@ -241,7 +241,7 @@ Potvrzení registrace.
     + Body
 
             {
-                "email": "email"    
+                "user_id": 12312334   
             }
 
 
@@ -280,9 +280,8 @@ Potvrzení registrace.
                     "message": "Chybové hlášení pro zobrazení uživatele.",
                     "error_code": "error.code.registration"
                 }
-            }		
-			
-			
+            } 
+ 	
 # Seznam školení uživatele [/account/{user_id}/trainings]
 
 Práce se školeními uživatele. Autorizovaný resource.
