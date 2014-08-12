@@ -212,7 +212,7 @@ Potvrzení registrace.
                 "profile": "/account/profile/{user_id}"
             }
 
-+ Response 200 (application/json)
++ Response 400 (application/json)
 
     + Headers
 
@@ -264,7 +264,8 @@ Potvrzení registrace.
                 "phone_number": "phone_number",
                 "login": "login_name",
                 "vat_number": "vat_number",
-                "licence_from": "vat_number"
+                "licence_start": "date_number",
+                "licence_end": "date_number"
             }
 
 + Response 400 (application/json)
