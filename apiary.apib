@@ -137,6 +137,7 @@ Operace pro vytvoření uživatele.
                 "last_name": "last_name",
                 "company_name": "company_name",
                 "email": "email",
+				"address": "address",
                 "country_code": "ISO country code",
                 "language_code": "ISO language code",
                 "phone_number": "phone_number",
@@ -227,6 +228,61 @@ Potvrzení registrace.
                 }
             }
 
+## GET
+
+# Operace pro zobrazení uživatele. [/account/{email}]	
+ 
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "email": "email"    
+            }
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "first_name": "first_name",
+                "last_name": "last_name",
+                "company_name": "company_name",
+                "email": "email",
+				"address": "address",
+                "country_code": "ISO country code",
+                "language_code": "ISO language code",
+                "phone_number": "phone_number",
+                "login": "login_name",
+                "vat_number": "vat_number",
+				"licence_from": "vat_number"
+            }
+
++ Response 400 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "error": {
+                    "message": "Chybové hlášení pro zobrazení uživatele.",
+                    "error_code": "error.code.registration"
+                }
+            }		
+			
+			
 # Seznam školení uživatele [/account/{user_id}/trainings]
 
 Práce se školeními uživatele. Autorizovaný resource.
