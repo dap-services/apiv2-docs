@@ -112,18 +112,10 @@ Seznam json atributů:
                 }
             }
 
-## Registrace uživatele [/account/registrationf]
+## Registrace uživatele [/account/registration]
 ### Register [POST]
 
-Registrace uživatele. Výsledkem je user_id a url pro přístup k profilu uživatele.
-
-> TODO Pravděpodobně samostatný resource - specifická emailová fčnost (confirmation flow)
-
-Operace pro vytvoření uživatele.
-
-200 se vrací v případě korektního http požadavku - nejsou ale splněny požadavky na vstupní json (validace vstupu).
-
-+ Request (application/json)
++ Request 
 
     + Headers
 
@@ -147,7 +139,7 @@ Operace pro vytvoření uživatele.
             }
 
 
-+ Response 200 (application/json)
++ Response 200 
 
     + Headers
 
@@ -160,7 +152,7 @@ Operace pro vytvoření uživatele.
                 "profile": "/account/profile/{user_id}"
             }
 
-+ Response 400 (application/json)
++ Response 400 
 
     + Headers
 
