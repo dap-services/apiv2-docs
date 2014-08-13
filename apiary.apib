@@ -115,12 +115,12 @@ Seznam json atributů:
 ## Registrace uživatele [/account/registration]
 ### Register [POST]
 
-+ Request 
++ Request (application/json)
 
-    + Headers
-
-            Accept: application/json
-
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            
     + Body
 
             {
@@ -139,26 +139,14 @@ Seznam json atributů:
             }
 
 
-+ Response 200 
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
++ Response 200 (application/json)
 
             {
                 "user_id": 12312334,
                 "profile": "/account/profile/{user_id}"
             }
 
-+ Response 400 
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
++ Response 400 (application/json)
 
             {
                 "error": {
@@ -166,7 +154,6 @@ Seznam json atributů:
                     "error_code": "error.code.registration"
                 }
             }
-
 
 # Potvrzení registrace uživatele [/account/registrationconfirm]
 
