@@ -363,3 +363,28 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "name": "Canada",
                 "id": 2
             }]
+            
+## Operace pro zobrazení uživatele. [/account/{email}]
+### Account [GET]
++ Response 200 (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "first_name": "first_name",
+                "last_name": "last_name",
+                "company_name": "company_name",
+                "email": "email",
+                "address": "address",
+                "country_code": "ISO country code",
+                "language_code": "ISO language code",
+                "phone_number": "phone_number",
+                "login": "login_name",
+                "vat_number": "vat_number",
+                "licence_start": "date_number",
+                "licence_end": "date_number"
+            }
