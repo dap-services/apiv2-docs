@@ -137,7 +137,6 @@ Operace pro vytvoření uživatele.
                 "last_name": "last_name",
                 "company_name": "company_name",
                 "email": "email",
-                "address": "address",
                 "country_code": "ISO country code",
                 "language_code": "ISO language code",
                 "phone_number": "phone_number",
@@ -212,7 +211,7 @@ Potvrzení registrace.
                 "profile": "/account/profile/{user_id}"
             }
 
-+ Response 400 (application/json)
++ Response 201 (application/json)
 
     + Headers
 
@@ -228,52 +227,6 @@ Potvrzení registrace.
                 }
             }
 
-# Operace pro zobrazení uživatele [/account/{user_id}]
- 
-+ Parameters
-
-    + user_id (required, number, `1`)
-
-## GET
- 
-+ Response 200 (application/json)
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-            {
-                "first_name": "first_name",
-                "last_name": "last_name",
-                "company_name": "company_name",
-                "email": "email",
-                "address": "address",
-                "country_code": "ISO country code",
-                "language_code": "ISO language code",
-                "phone_number": "phone_number",
-                "login": "login_name",
-                "vat_number": "vat_number",
-                "licence_start": "date_number",
-                "licence_end": "date_number"
-            }
-
-+ Response 400 (application/json)
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-            {
-                "error": {
-                    "message": "Chybové hlášení pro zobrazení uživatele.",
-                    "error_code": "error.code.registration"
-                }
-            } 
- 	
 # Seznam školení uživatele [/account/{user_id}/trainings]
 
 Práce se školeními uživatele. Autorizovaný resource.
@@ -327,12 +280,12 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
 
 ## Languages Collection [/language]
 ### List all Languages [GET]
-+ Response 200 (application/json)
++ Response 200 (application/pdf)
 
     + Header
     
-            Accept: application/json
-            
+            Content-Disposition: attachment; filename="jump.json"
+
     + Body
 
             [{
@@ -363,28 +316,3 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "name": "Canada",
                 "id": 2
             }]
-            
-## Operace pro zobrazení uživatele. [/account/{user_id}]
-### Account [GET]
-+ Response 200 (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
-            
-    + Body
-
-            {
-                "first_name": "first_name",
-                "last_name": "last_name",
-                "company_name": "company_name",
-                "email": "email",
-                "address": "address",
-                "country_code": "ISO country code",
-                "language_code": "ISO language code",
-                "phone_number": "phone_number",
-                "login": "login_name",
-                "vat_number": "vat_number",
-                "licence_start": "date_number",
-                "licence_end": "date_number"
-            }
