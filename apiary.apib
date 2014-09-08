@@ -115,6 +115,7 @@ role: businessman, business_partner
     + Body
 
             {
+                "customer_id":"customer_id",
                 "first_name": "first_name",
                 "last_name": "last_name",
                 "company_name": "company_name",
@@ -272,9 +273,35 @@ Seznam školení uživatele.
                     "status": "NOT_ORDERED"
                 }
 
-## POST
+## Objednani trenings [/account/{user_id}/training/{training_id}/order]
+### order [POST]
 
 Objednání školení uživatele. Výsledkem je odeslání emailu administrátorovi s žádostí o školení.
+
++ Request (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "training_id": 1,
+                "message":"message_text"
+            }
+
++ Response 200
+
+            {
+                "training_id": 1,
+                "profile": "/account/profile/{user_id}"
+            }
+            
+## Potvrzeni trenings adminem [/account/{user_id}/training/{training_id}/confirm]
+### confirm [POST]
+
+Potvrzeni školení adminem. 
 
 + Request (application/json)
 
@@ -483,7 +510,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "result_scan_link": "result_scan_link"
+                "customer_id":"customer_id"
             },{
                 "diag_result_id": "diag_result_id_2",
                 "name": "name_2",
@@ -493,7 +520,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "result_scan_link": "result_scan_link"
+                "customer_id":"customer_id"
             },{
                 "diag_result_id": "diag_result_id_21",
                 "name": "name_21",
@@ -503,7 +530,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "result_scan_link": "result_scan_link"
+                "customer_id":"customer_id"
             },{
                 "diag_result_id": "diag_result_id_22",
                 "name": "name_22",
@@ -513,7 +540,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "result_scan_link": "result_scan_link"
+                "customer_id":"customer_id"
             },{
                 "diag_result_id": "diag_result_id_31",
                 "name": "name_31",
@@ -523,7 +550,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "result_scan_link": "result_scan_link"
+                "customer_id":"customer_id"
             },{
                 "diag_result_id": "diag_result_id_32",
                 "name": "name_32",
@@ -533,44 +560,18 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "result_scan_link": "result_scan_link"
+                "customer_id":"customer_id"
+            },{
+                "diag_result_id": "diag_result_id_25",
+                "name": "name_25",
+                "surname": "surname",
+                "email":"email@email.cx",
+                "department_name": "department1",
+                "item_name":"item_name",
+                "birth_year": "birth_year",
+                "scan_date": "scan_date",
+                "customer_id":"customer_id"
             }]
-            
-## Seznam personu konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/groupresult]
-### List Diag Group Result [POST]
-+ Request (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
-            
-    + Body
-
-            [{
-                "person_id": "person_id_1"
-            },{
-                "person_id": "person_id_2"
-            },{
-                "person_id": "person_id_3"
-            },{
-                "person_id": "person_id_4"
-            }]
-
-+ Response 200 (application/json)
-
-            {
-                "group_result": "url",
-                "profile": "/account/profile/{user_id}"
-            }
-
-+ Response 400 (application/json)
-
-            {
-                "error": {
-                    "message": "Chybové hlášení pro generovani group result zakaznika.",
-                    "error_code": "error.code.groupresult"
-                }
-            }
             
 ## Seznam lidi konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/persons]
 ### List department [GET]
@@ -583,32 +584,32 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
     + Body
 
             [{
-                "person_id": "person_id_1",
+                "person_id": 1,
                 "name": "name_1",
                 "birth_year": "birth_year",
                 "department": "department1"
             },{
-                "person_id": "person_id_2",
+                "person_id": 2,
                 "name": "name_2",
                 "birth_year": "birth_year",
                 "department": "department1"
             },{
-                "person_id": "person_id_3",
+                "person_id": 3,
                 "name": "name_3",
                 "birth_year": "birth_year",
                 "department": "department2"
             },{
-                "person_id": "person_id_4",
+                "person_id": 4,
                 "name": "name_4",
                 "birth_year": "birth_year",
                 "department": "department2"
             },{
-                "person_id": "person_id_5",
+                "person_id": 5,
                 "name": "name_5",
                 "birth_year": "birth_year",
                 "department": "department3"
             },{
-                "person_id": "person_id_6",
+                "person_id": 6,
                 "name": "name_6",
                 "birth_year": "birth_year",
                 "department": "department3"
@@ -625,10 +626,13 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
     + Body
 
             [{
+                "department_id": 1,
                 "department": "department1"
             },{
+                "department_id": 2,
                 "department": "department2"
             },{
+                "department_id": 3,
                 "department": "department3"
             }]
 
@@ -688,7 +692,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 }
             }
             
-## Download pdf [/download/{diag_result_id}/{token}]
+## Download pdf [/download/{hash_result}/{token}]
 ### Download [GET]
 
 + Response 200
@@ -703,4 +707,74 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
     
             text
             
+
+## Seznam nebo jednoho person konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/generateresult]
+### List Diag Group Result [POST]
++ Request (application/json)
+
+
+            [
+                "diag_result_id_2",
+                "diag_result_id_21",
+                "diag_result_id_32",
+                "person_id_1"
+            ]
+
++ Response 200 (application/json)
+
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            
+    + Body
+    
+            {
+                "hash_result": "hdkdirrff15487",
+                "profile": "/account/profile/{user_id}"
+            }
+
++ Response 400 (application/json)
+
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            
+    + Body
+    
+            {
+                "error": {
+                    "message": "Chybové hlášení pro generovani group result zakaznika.",
+                    "error_code": "error.code.groupresult"
+                }
+            }        
+            
+## Seznam business partneru konkretniho obchodnika [/businesspartner/{user_id}]
+### List businesspartner [GET]
++ Response 200 (application/json)
+
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            
+    + Body
+
+            [{
+                "company_id": "company_id1",
+                "company_name": "company_name1",
+                "date": "12.12.2014",
+                "email": "email@email.cz",
+                "phone":"123456789"
+            },{
+                "company_id": "company_id2",
+                "company_name": "company_name2",
+                "date": "12.12.2014",
+                "email": "email@email.cz",
+                "phone":"123456789"
+            },{
+                "company_id": "company_id3",
+                "company_name": "company_name3",
+                "date": "12.12.2014",
+                "email": "email@email.cz",
+                "phone":"123456789"
+            }]
             
