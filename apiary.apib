@@ -135,20 +135,6 @@ Seznam json atributů:
             }
 
 
-## Users Login [/account/registrationconfirm]
-### Login User [POST]
-+ Response 200 (application/json)
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "user_id": 12312334,
-                "profile": "/account/profile/{user_id}"
-            }
 
 ## Operace pro zobrazení uživatele. [/account/{user_id}]
 ### List all accounts [GET]
@@ -177,6 +163,9 @@ Seznam json atributů:
             }
 
 ### Create new account [PUT]
+
+> TODO jaký je rozdíl mezi [PUT] account a [POST] account/registration?
+
 + Request (application/json)
 
     + Header
@@ -217,6 +206,7 @@ Seznam json atributů:
             }
 
 ## Registrace uživatele [/account/registration]
+
 ### Register [POST]
 
 + Request (application/json)
@@ -259,11 +249,44 @@ Seznam json atributů:
                 }
             }
 
+## Users Login [/account/registrationconfirm]
+
+> TODO url by mohla být /account/registration/confirm
+
+Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (pravděpodobně do emailu v potvrzovacím linku). V případě, že požadavek není validní - neexistující klíč, uživatel je již aktivovaný se vrací error json.
+
+### Login User [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+                "key": "confirmation_key"
+            }
+
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "user_id": 12312334,
+                "profile": "/account/profile/{user_id}"
+            }
+
 # Seznam školení uživatele [/account/{user_id}/training]
 
 Práce se školeními uživatele. Autorizovaný resource.
 
-> TODO Pravděpodobně samostatný resource pro app
+> TODO training vs trainings.
 
 ## GET
 
