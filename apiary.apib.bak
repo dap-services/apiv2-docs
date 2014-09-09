@@ -115,7 +115,6 @@ role: businessman, business_partner
     + Body
 
             {
-                "customer_id":"customer_id",
                 "first_name": "first_name",
                 "last_name": "last_name",
                 "company_name": "company_name",
@@ -273,35 +272,9 @@ Seznam školení uživatele.
                     "status": "NOT_ORDERED"
                 }
 
-## Objednani trenings [/account/{user_id}/training/{training_id}/order]
-### order [POST]
+## POST
 
 Objednání školení uživatele. Výsledkem je odeslání emailu administrátorovi s žádostí o školení.
-
-+ Request (application/json)
-
-    + Headers
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "training_id": 1,
-                "message":"message_text"
-            }
-
-+ Response 200
-
-            {
-                "training_id": 1,
-                "profile": "/account/profile/{user_id}"
-            }
-            
-## Potvrzeni trenings adminem [/account/{user_id}/training/{training_id}/confirm]
-### confirm [POST]
-
-Potvrzeni školení adminem. 
 
 + Request (application/json)
 
@@ -510,7 +483,7 @@ Potvrzeni školení adminem.
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "customer_id":"customer_id"
+                "result_scan_link": "result_scan_link"
             },{
                 "diag_result_id": "diag_result_id_2",
                 "name": "name_2",
@@ -520,7 +493,7 @@ Potvrzeni školení adminem.
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "customer_id":"customer_id"
+                "result_scan_link": "result_scan_link"
             },{
                 "diag_result_id": "diag_result_id_21",
                 "name": "name_21",
@@ -530,7 +503,7 @@ Potvrzeni školení adminem.
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "customer_id":"customer_id"
+                "result_scan_link": "result_scan_link"
             },{
                 "diag_result_id": "diag_result_id_22",
                 "name": "name_22",
@@ -540,7 +513,7 @@ Potvrzeni školení adminem.
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "customer_id":"customer_id"
+                "result_scan_link": "result_scan_link"
             },{
                 "diag_result_id": "diag_result_id_31",
                 "name": "name_31",
@@ -550,7 +523,7 @@ Potvrzeni školení adminem.
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "customer_id":"customer_id"
+                "result_scan_link": "result_scan_link"
             },{
                 "diag_result_id": "diag_result_id_32",
                 "name": "name_32",
@@ -560,18 +533,44 @@ Potvrzeni školení adminem.
                 "item_name":"item_name",
                 "birth_year": "birth_year",
                 "scan_date": "scan_date",
-                "customer_id":"customer_id"
-            },{
-                "diag_result_id": "diag_result_id_25",
-                "name": "name_25",
-                "surname": "surname",
-                "email":"email@email.cx",
-                "department_name": "department1",
-                "item_name":"item_name",
-                "birth_year": "birth_year",
-                "scan_date": "scan_date",
-                "customer_id":"customer_id"
+                "result_scan_link": "result_scan_link"
             }]
+            
+## Seznam personu konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/groupresult]
+### List Diag Group Result [POST]
++ Request (application/json)
+
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            
+    + Body
+
+            [{
+                "person_id": "person_id_1"
+            },{
+                "person_id": "person_id_2"
+            },{
+                "person_id": "person_id_3"
+            },{
+                "person_id": "person_id_4"
+            }]
+
++ Response 200 (application/json)
+
+            {
+                "group_result": "url",
+                "profile": "/account/profile/{user_id}"
+            }
+
++ Response 400 (application/json)
+
+            {
+                "error": {
+                    "message": "Chybové hlášení pro generovani group result zakaznika.",
+                    "error_code": "error.code.groupresult"
+                }
+            }
             
 ## Seznam lidi konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/persons]
 ### List department [GET]
@@ -584,32 +583,32 @@ Potvrzeni školení adminem.
     + Body
 
             [{
-                "person_id": 1,
+                "person_id": "person_id_1",
                 "name": "name_1",
                 "birth_year": "birth_year",
                 "department": "department1"
             },{
-                "person_id": 2,
+                "person_id": "person_id_2",
                 "name": "name_2",
                 "birth_year": "birth_year",
                 "department": "department1"
             },{
-                "person_id": 3,
+                "person_id": "person_id_3",
                 "name": "name_3",
                 "birth_year": "birth_year",
                 "department": "department2"
             },{
-                "person_id": 4,
+                "person_id": "person_id_4",
                 "name": "name_4",
                 "birth_year": "birth_year",
                 "department": "department2"
             },{
-                "person_id": 5,
+                "person_id": "person_id_5",
                 "name": "name_5",
                 "birth_year": "birth_year",
                 "department": "department3"
             },{
-                "person_id": 6,
+                "person_id": "person_id_6",
                 "name": "name_6",
                 "birth_year": "birth_year",
                 "department": "department3"
@@ -626,13 +625,10 @@ Potvrzeni školení adminem.
     + Body
 
             [{
-                "department_id": 1,
                 "department": "department1"
             },{
-                "department_id": 2,
                 "department": "department2"
             },{
-                "department_id": 3,
                 "department": "department3"
             }]
 
@@ -692,7 +688,7 @@ Potvrzeni školení adminem.
                 }
             }
             
-## Download pdf [/download/{hash_result}/{token}]
+## Download pdf [/download/{diag_result_id}/{token}]
 ### Download [GET]
 
 + Response 200
@@ -707,115 +703,4 @@ Potvrzeni školení adminem.
     
             text
             
-
-## Seznam nebo jednoho person konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/generateresult]
-### List Diag Group Result [POST]
-+ Request (application/json)
-
-
-            [
-                "diag_result_id_2",
-                "diag_result_id_21",
-                "diag_result_id_32",
-                "person_id_1"
-            ]
-
-+ Response 200 (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
             
-    + Body
-    
-            {
-                "hash_result": "hdkdirrff15487",
-                "profile": "/account/profile/{user_id}"
-            }
-
-+ Response 400 (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
-            
-    + Body
-    
-            {
-                "error": {
-                    "message": "Chybové hlášení pro generovani group result zakaznika.",
-                    "error_code": "error.code.groupresult"
-                }
-            }        
-            
-## Seznam business partneru konkretniho obchodnika [/businesspartner/{user_id}]
-### List businesspartner [GET]
-+ Response 200 (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
-            
-    + Body
-
-            [{
-                "company_id": "company_id1",
-                "company_name": "company_name1",
-                "date": "12.12.2014",
-                "email": "email@email.cz",
-                "phone":"123456789"
-            },{
-                "company_id": "company_id2",
-                "company_name": "company_name2",
-                "date": "12.12.2014",
-                "email": "email@email.cz",
-                "phone":"123456789"
-            },{
-                "company_id": "company_id3",
-                "company_name": "company_name3",
-                "date": "12.12.2014",
-                "email": "email@email.cz",
-                "phone":"123456789"
-            }]
-            
-## Licence - history [/account/{user_id}/licence]
-### List all licences [GET]
-+ Response 200 (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
-            
-    + Body
-
-            [{
-                "licence_start": "25.2.2014",
-                "licence_end": "25.2.2015",
-                "licence_when":"2.2.2014"
-            },{
-                "licence_start": "25.2.2013",
-                "licence_end": "25.2.2014",
-                "licence_when":"2.2.2013"
-            }]
-
-
-### Create new licence [POST]
-+ Request (application/json)
-
-            {
-                "licence_start": "25.2.2013",
-                "licence_end": "25.2.2014"
-            }
-
-+ Response 200 (application/json)
-
-    + Header
-    
-            Access-Control-Allow-Origin: *
-            
-    + Body
-    
-            {
-                "licence_id": 123,
-                "profile": "/account/profile/{user_id}"
-            }
