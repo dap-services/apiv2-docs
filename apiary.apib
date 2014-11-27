@@ -764,6 +764,15 @@ Potvrzeni školení adminem.
 ## Download pdf [/download/{hash_result}/{token}]
 ### Download [GET]
 
++ Response 402
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"i18nKeyNoLicense","type":"error"}
+            }
+            
 + Response 200
 
     + Header
@@ -774,7 +783,7 @@ Potvrzeni školení adminem.
 
     + Body
 
-            text
+            text 
 
 
 ## Seznam nebo jednoho person konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/generateresult]
