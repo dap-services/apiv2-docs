@@ -765,19 +765,6 @@ Potvrzeni školení adminem.
 ### Download [GET]
 
             
-+ Response 402
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "messages": 
-                    {"i18nKey":"i18nKeyNoLicense","type":"error"}
-            }
-            
 + Response 200
 
     + Header
@@ -802,7 +789,20 @@ Potvrzeni školení adminem.
                 "diag_result_id_32",
                 "person_id_1"
             ]
+            
++ Response 402
 
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"error_code_groupresult","type":"error"}
+            }
+            
 + Response 200 (application/json)
 
     + Header
