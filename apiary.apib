@@ -902,3 +902,38 @@ Potvrzeni školení adminem.
                 "licence_id": 123,
                 "profile": "/account/profile/{user_id}"
             }
+
+## Licence - order [/account/{user_id}/licence/order]
+### Order licence [POST]
+
++ Request (application/json)
+
+            {
+                "message": "message"
+            }
+
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"success_code_orderlicense","type":"success"}
+            }
+            
++ Response 400 
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"error_code_orderlicense","type":"error"}
+            }
