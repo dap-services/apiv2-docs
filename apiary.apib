@@ -98,7 +98,9 @@ Seznam json atributů:
                 "user_id": 12312334,
                 "profile": "/account/profile/{user_id}",
                 "token": "security_token",
-                "role":"business_partner"
+                "role":"business_partner",
+                "first_name":"first_name",
+                "last_name":"last_name"
             }
 
 + Response 401 (Unauthorized)
@@ -110,10 +112,8 @@ Seznam json atributů:
     + Body
 
             {
-                "error": {
-                    "message": "Chybové hlášení pro autentizaci."
-                    "error_code": "error.code.login.badUserName"
-                }
+                "messages": 
+                    {"i18nKey":"error_code_login","type":"error"}
             }
 
 ## Users Login [/account/loginbad]
