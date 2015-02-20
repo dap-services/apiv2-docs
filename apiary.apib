@@ -950,6 +950,7 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
     + Header
 
             Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
 
     + Body
        
@@ -1028,4 +1029,114 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
                 "messages": 
                     {"i18nKey":"order_bad_request_code","type":"error"}
             }
+            
+### Order licence [GET]
+Vrácení všech objednávek uživatele
+
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
+    + Body
+       
         
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "id":1,    
+                "name": "New partner order",
+                "insert_time": 1231564,
+                "valid_to": 121546516,
+                "order_status": "open",
+                "scanned_count": 12,
+                "total_count": 50
+            },
+            {
+                "id":2,    
+                "name": "Second partner order",
+                "insert_time": 1431564,
+                "valid_to": 161546516,
+                "order_status": "open",
+                "scanned_count": 4,
+                "total_count": 50
+            }
+       
+## Licence - order [/order/partner/{order_id}]
+Načtení detailu objednávky
+### Order licence [GET]
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
++ Response 200 (application/json)
+    
+    + Header
+
+            Access-Control-Allow-Origin: *
+    
+    + Body
+       
+            {
+                "scanner": {
+                    "first_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "last_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "department": {
+                        "values": "dep1;dep2;dep3",
+                        "label": null,
+                        "selected": true
+                    },
+                    "custom_item": {
+                        "values": null,
+                        "label": "Name of our favorite pet.",
+                        "selected": true
+                    }
+                },
+                "name": "New partner order",
+                "consultant_id":1,
+                "valid_to":121546516,
+                "scaner_language":"en"
+                "send_instruction": true,
+                "send_result_to_person": true,
+                "send_results_to_consultant": true,
+                
+                "persons": [
+                    {
+                      "email": "a@aa.aa",
+                      "department": "a"
+                    },
+                    {
+                      "email": "aa@aa.aa"
+                    },
+                    {
+                      "email": "b@b.bb"
+                    }
+                ],
+                "departments": [
+                    "a",
+                    "b",
+                    "c"
+                ]
+            }
+             
