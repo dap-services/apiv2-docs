@@ -941,13 +941,91 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
             }
             
 
-## Licence - order [/partner/order]
+## Licence - order [/order/partner]
 Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zpráva, kterou uživatel napsal) a email osobě s potvrzením objednávky
 ### Order licence [POST]
 
 + Request (application/json)
 
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+       
+            {
+                "scanner": {
+                    "first_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "last_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "department": {
+                        "values": "dep1;dep2;dep3",
+                        "label": null,
+                        "selected": true
+                    },
+                    "custom_item": {
+                        "values": null,
+                        "label": "Name of our favorite pet.",
+                        "selected": true
+                    }
+                },
+                "name": "New partner order",
+                "consultant_id":1,
+                "valid_to":121546516,
+                "scaner_language":"en"
+                "send_instruction": true,
+                "send_result_to_person": true,
+                "send_results_to_consultant": true,
+                
+                "persons": [
+                    {
+                      "email": "a@aa.aa",
+                      "department": "a"
+                    },
+                    {
+                      "email": "aa@aa.aa"
+                    },
+                    {
+                      "email": "b@b.bb"
+                    }
+                ],
+                "departments": [
+                    "a",
+                    "b",
+                    "c"
+                ]
+            }
+        
 + Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"order_success_code","type":"success"}
+            }
             
 + Response 400 
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"order_bad_request_code","type":"error"}
+            }
         
