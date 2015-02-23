@@ -943,7 +943,7 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
 
 ## Partner - order [/order/partner]
 ### New order [POST]
-Vytvoreni nove obednavky.
+Vytvoreni nebo editace nove obednavky. Zalezi jestli je vyplneno order_id
 
 + Request (application/json)
 
@@ -955,6 +955,7 @@ Vytvoreni nove obednavky.
     + Body
        
             {
+                "order_id": 1,
                 "scanner": {
                     "first_name": {
                         "values": null,
