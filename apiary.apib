@@ -1165,3 +1165,49 @@ Načtení detailu objednávky
                     }
                 ]
             }
+
+## Licence - order [/order/partner/new]
+### Order licence [GET]
+Načtení udaju nutnych pro vytvoreni nove obednavky (jazyk snimace, konzultanti).
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
++ Response 200 (application/json)
+    
+    + Header
+
+            Access-Control-Allow-Origin: *
+    
+    + Body
+       
+            {
+                "scanner_languages": [
+                    {
+                      "i18nKey": "en",
+                      "id": "en"
+                    },
+                    {
+                      "i18nKey": "cs",
+                      "id": "cs"
+                    }
+                  ],
+                  "consultants": [
+                    {
+                      "id": 0,
+                      "email": "consultant1@example.com",
+                      "first_name": "Karel",
+                      "last_name": "Novak"
+                    },
+                    {
+                      "id": 2,
+                      "email": "consultant2@example.com",
+                      "first_name": "Renata",
+                      "last_name": "Svobodova"
+                    }
+                ]
+            }
