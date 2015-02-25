@@ -1216,17 +1216,38 @@ Načtení udaju nutnych pro vytvoreni nove obednavky (jazyk snimace, konzultanti
 ### Order licence [POST]
 Převede xls/xlsx příchozí soubor, převede do tvaru použávaný v applikaci a vrátí jako odpověď.
 
-+ Request
++ Request (multipart/form-data)
 
     + Header
 
             Access-Control-Allow-Origin: *
             X-Authorization: 12124-545-asdf
 
-+ Response 200
++ Response 200 (application/json)
     
     + Header
 
             Access-Control-Allow-Origin: *
     
     + Body
+    
+            {
+                "persons": [
+                    {
+                      "email": "a@aa.aa",
+                      "department": "a"
+                    },
+                    {
+                      "email": "aa@aa.aa",
+                      "new_email":"ab@aa.aa"
+                    },
+                    {
+                      "email": "b@b.bb"
+                    }
+                ],
+                "departments": [
+                    "a",
+                    "b",
+                    "c"
+                ]
+            }
