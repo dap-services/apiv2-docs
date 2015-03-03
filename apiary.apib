@@ -939,11 +939,10 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
                 "messages": 
                     {"i18nKey":"orderlicense_error_code","type":"error"}
             }
-            
 
-## Partner - order [/order/partner]
-### New order [POST]
-Vytvoreni nebo editace nove obednavky. Zalezi jestli je vyplneno order_id
+## Partner - order [/order/partner/save]
+### New order [PUT]
+Vytvoreni nebo editace nove obednavky. Zalzi jestli je vyplneno order_id.
 
 + Request (application/json)
 
@@ -1030,7 +1029,8 @@ Vytvoreni nebo editace nove obednavky. Zalezi jestli je vyplneno order_id
                 "messages": 
                     {"i18nKey":"order_bad_request_code","type":"error"}
             }
-            
+
+## Partner - order [/order/partner/showAll]
 ### Order licence [GET]
 Vrácení všech objednávek uživatele
 
@@ -1061,7 +1061,7 @@ Vrácení všech objednávek uživatele
                 "order_status": "open",
                 "scanned_count": 12,
                 "total_count": 50
-            },
+            },## Partner - order [/order/partner/save]
             {
                 "id":2,    
                 "name": "Second partner order",
@@ -1072,7 +1072,7 @@ Vrácení všech objednávek uživatele
                 "total_count": 50
             }
        
-## Licence - order [/order/partner/{order_id}]
+## Licence - order [/order/partner/detail/{order_id}]
 ### Order licence [GET]
 Načtení detailu objednávky
 
