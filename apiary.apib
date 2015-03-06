@@ -1255,7 +1255,7 @@ Převede xls/xlsx příchozí soubor, převede do tvaru použávaný v applikaci
             }
 
 
-## Licence - order [/order/partner/closeOrder?{order_id}]
+## Licence - order [/order/partner/closeOrder/{order_id}]
 ### Order licence [POST]
 Uzavre obednavku se zadanym id. Nastaví status na close.
 Podle response kodu se zjisti se provedlo.
@@ -1268,5 +1268,55 @@ Podle response kodu se zjisti se provedlo.
             X-Authorization: 12124-545-asdf
 
 + Response 200
+
++ Response 400
+
+## Partner group results [/order/partner/groupResults]
+### Show group results detail [GET]
+Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky.
+
++ Request (multipart/form-data)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
++ Response 200
+
+            {
+              "intruders": [
+                {
+                  "result_id": 1,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": 1966,
+                  "scan_date": 123456789
+                }
+              ],
+              "results": [
+                {
+                  "result_id": 10,
+                  "first_name": "Milal",
+                  "last_name": "Maly",
+                  "email": "maly@email.com",
+                  "year_of_birth": 1986,
+                  "scan_date": 123456789,
+                  "department": "Sales"
+                }
+              ],
+              "group_results": [
+                {
+                  "group_result_id": 100,
+                  "group_name": "whole female",
+                  "generate_date": 123456789
+                }
+              ],
+              "departments": [
+                "Sales",
+                "Management"
+              ]
+            }
 
 + Response 400
