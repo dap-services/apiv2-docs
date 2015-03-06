@@ -940,8 +940,8 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
                     {"i18nKey":"orderlicense_error_code","type":"error"}
             }
 
-## Partner - order [/order/partner/save]
-### New order [PUT]
+## Partner - order [/order/partner]
+### New order [POST]
 Vytvoreni nebo editace nove obednavky. Zalzi jestli je vyplneno order_id.
 
 + Request (application/json)
@@ -1030,7 +1030,7 @@ Vytvoreni nebo editace nove obednavky. Zalzi jestli je vyplneno order_id.
                     {"i18nKey":"order_bad_request_code","type":"error"}
             }
 
-## Partner - order [/order/partner/showAll]
+## Partner - order [/order/partner/list]
 ### Order licence [GET]
 Vrácení všech objednávek uživatele
 
@@ -1074,7 +1074,7 @@ Vrácení všech objednávek uživatele
               }
             ]
        
-## Licence - order [/order/partner/detail?{order_id}]
+## Licence - order [/order/partner/{order_id}]
 ### Order licence [GET]
 Načtení detailu objednávky
 
@@ -1168,7 +1168,7 @@ Načtení detailu objednávky
                 ]
             }
 
-## Licence - order [/order/partner/new]
+## Licence - order [/order/partner/init-data]
 ### Order licence [GET]
 Načtení udaju nutnych pro vytvoreni nove obednavky (jazyk snimace, konzultanti).
 
@@ -1214,7 +1214,7 @@ Načtení udaju nutnych pro vytvoreni nove obednavky (jazyk snimace, konzultanti
                 ]
             }
 
-## Licence - order [/order/partner/importXls]
+## Licence - order [/order/partner/importStructure]
 ### Order licence [POST]
 Převede xls/xlsx příchozí soubor, převede do tvaru použávaný v applikaci a vrátí jako odpověď.
 
@@ -1271,7 +1271,7 @@ Podle response kodu se zjisti se provedlo.
 
 + Response 400
 
-## Partner group results [/order/partner/groupResults]
+## Partner group results [/order/partner/results]
 ### Show group results detail [GET]
 Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky.
 
@@ -1285,25 +1285,25 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
 + Response 200
 
             {
-              "intruders": [
-                {
-                  "result_id": 1,
-                  "first_name": "Tomas",
-                  "last_name": "Skorapka",
-                  "email": "skoto@email.com",
-                  "year_of_birth": 1966,
-                  "scan_date": 123456789
-                }
-              ],
               "results": [
                 {
-                  "result_id": 10,
+                  "result_id": 1,
                   "first_name": "Milal",
                   "last_name": "Maly",
                   "email": "maly@email.com",
                   "year_of_birth": 1986,
                   "scan_date": 123456789,
-                  "department": "Sales"
+                  "department": "Sales",
+                  "intruder": true
+                },
+                {
+                  "id": 2,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": 1966,
+                  "scan_date": 123456789,
+                  "intruder": true
                 }
               ],
               "group_results": [
