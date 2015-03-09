@@ -1350,3 +1350,24 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
             }
 
 + Response 400
+
+## Generate result for partner order [/result/partner/{order_id}/generate]
+### Generate result for partner order [POST]
+Zadost vygenerovani skupinoveho vystupu
+
++ Request
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+            
+    + Body
+    
+            {
+                "result_type":"GROUP|SINGLE",
+                "generate_result_ids": [1,2,3],
+                "group_name":"name of group result"
+            }
++ Response 200
++ Response 400
