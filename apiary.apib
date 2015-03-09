@@ -1371,3 +1371,61 @@ Zadost vygenerovani skupinoveho vystupu
             }
 + Response 200
 + Response 400
+
+## Remove status intruder from scanned person [/order/partner/{order_id}/allow-intruder]
+### Remove status intruder from scanned person [POST]
+Zruseni stavu "intruder" pro odsnimanou osobu
+
++ Request
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+            
+    + Body
+    
+            {
+                "intruder_email":"intruder@email.com"
+            }
++ Response 200
++ Response 400
+
+## Remove intruder from order [/order/partner/{order_id}/remove-intruder]
+### Remove intruder from order [POST]
+Odstranit neobjednanou osobu z objednavky
+
++ Request
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+            
+    + Body
+    
+            {
+                "intruder_email":"intruder@email.com"
+            }
++ Response 200
++ Response 400
+
+## Join intruder to existing person in order [/order/partner/{order_id}/join-intruder]
+### Join intruder to existing person in order [POST]
+Priradid intrudera k objednane (neodsnimane) osobe
+
++ Request
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+            
+    + Body
+    
+            {
+                "intruder_email":"intruder@email.com",
+                "join_person_email":"user@email.com"
+            }
++ Response 200
++ Response 400
