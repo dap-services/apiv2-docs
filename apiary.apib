@@ -1601,14 +1601,16 @@ Priradid intrudera k objednane (neodsnimane) osobe
             Access-Control-Allow-Origin: *
             X-Authorization: {authorization_token}
 
-+ Response 200(multipart/form-data; boundary=---BOUNDARY)
++ Response 200
 
-        -----BOUNDARY
-            /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
-            HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
-            MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIA
-            AhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEB
-            AAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AL+AD//Z
-        -----BOUNDARY
+    + Header
+
+            Content-Type: application/pdf
+            Content-Disposition: attachment; filename="invoice.pdf"
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            Order invoice
         
 + Response 400
