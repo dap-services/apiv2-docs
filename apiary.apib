@@ -1353,7 +1353,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
 
 ## Generate result for partner order [/result/partner/{order_id}/generate]
 ### Generate result for partner order [POST]
-Zadost vygenerovani skupinoveho vystupu
+Zadost vygenerovani vystupu (skupinovho i jednotlivce).
+Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku ktery byl generovan.
 
 + Request
 
@@ -1370,6 +1371,67 @@ Zadost vygenerovani skupinoveho vystupu
                 "group_name":"name of group result"
             }
 + Response 200
+
+            {
+              "results": [
+                {
+                  "id": 1,
+                  "first_name": "Milal",
+                  "last_name": "Maly",
+                  "email": "maly@email.com",
+                  "year_of_birth": 1986,
+                  "scan_time": 123456789,
+                  "department": "Sales",
+                  "intruder": false
+                },
+                {
+                  "id": 2,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": 1966,
+                  "scan_time": 123456789,
+                  "intruder": false
+                },
+                {
+                  "id": 3,
+                  "first_name": "Mirek",
+                  "last_name": "Pospíšil",
+                  "email": "spech@email.com",
+                  "year_of_birth": 1968,
+                  "scan_time": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 4,
+                  "first_name": "Tonda",
+                  "last_name": "Kudla",
+                  "email": "kudla@email.com",
+                  "year_of_birth": 1978,
+                  "scan_time": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 5,
+                  "first_name": "Milena",
+                  "last_name": "Kurnakova",
+                  "email": "kudrnka@email.com",
+                  "year_of_birth": 1989,
+                  "scan_time": 123456789,
+                  "intruder": false
+                }
+              ],
+              "group_results": [
+                {
+                  "group_result_id": 100,
+                  "group_name": "whole female",
+                  "generate_time": 123456789
+                }
+              ]
+            }
+
 + Response 400
 
 ## Remove status intruder from scanned person [/order/partner/{order_id}/allow-intruder]
@@ -1440,18 +1502,6 @@ Zruseni stavu "intruder" pro odsnimanou osobu
                   "scan_time": 123456789,
                   "intruder": false
                 }
-              ],
-              "group_results": [
-                {
-                  "group_result_id": 100,
-                  "group_name": "whole female",
-                  "generate_time": 123456789
-                }
-              ],
-              "departments": [
-                "Sales",
-                "Management",
-                "IT"
               ]
             }
             
@@ -1515,18 +1565,6 @@ Odstranit neobjednanou osobu z objednavky
                   "scan_time": 123456789,
                   "intruder": false
                 }
-              ],
-              "group_results": [
-                {
-                  "group_result_id": 100,
-                  "group_name": "whole female",
-                  "generate_time": 123456789
-                }
-              ],
-              "departments": [
-                "Sales",
-                "Management",
-                "IT"
               ]
             }
 + Response 400
@@ -1590,18 +1628,6 @@ Priradid intrudera k objednane (neodsnimane) osobe
                   "scan_time": 123456789,
                   "intruder": false
                 }
-              ],
-              "group_results": [
-                {
-                  "group_result_id": 100,
-                  "group_name": "whole female",
-                  "generate_time": 123456789
-                }
-              ],
-              "departments": [
-                "Sales",
-                "Management",
-                "IT"
               ]
             }
 + Response 400
