@@ -1287,7 +1287,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
             {
               "results": [
                 {
-                  "result_id": 1,
+                  "id": 1,
                   "first_name": "Milal",
                   "last_name": "Maly",
                   "email": "maly@email.com",
@@ -1389,6 +1389,72 @@ Zruseni stavu "intruder" pro odsnimanou osobu
                 "intruder_email":"intruder@email.com"
             }
 + Response 200
+
+            {
+              "results": [
+                {
+                  "id": 1,
+                  "first_name": "Milal",
+                  "last_name": "Maly",
+                  "email": "maly@email.com",
+                  "year_of_birth": 1986,
+                  "scan_date": 123456789,
+                  "department": "Sales",
+                  "intruder": false
+                },
+                {
+                  "id": 2,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": 1966,
+                  "scan_date": 123456789,
+                  "intruder": false
+                },
+                {
+                  "id": 3,
+                  "first_name": "Mirek",
+                  "last_name": "Pospíšil",
+                  "email": "spěch@email.com",
+                  "year_of_birth": 1968,
+                  "scan_date": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 4,
+                  "first_name": "Tonda",
+                  "last_name": "Kudla",
+                  "email": "kudla@email.com",
+                  "year_of_birth": 1978,
+                  "scan_date": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 5,
+                  "first_name": "Milena",
+                  "last_name": "Kurnakova",
+                  "email": "kudrnka@email.com",
+                  "year_of_birth": 1989,
+                  "scan_date": 123456789,
+                  "intruder": false
+                }
+              ],
+              "group_results": [
+                {
+                  "group_result_id": 100,
+                  "group_name": "whole female",
+                  "generate_date": 123456789
+                }
+              ],
+              "departments": [
+                "Sales",
+                "Management",
+                "IT"
+              ]
+            }
+            
 + Response 400
 
 ## Remove intruder from order [/order/partner/{order_id}/remove-intruder]
@@ -1408,6 +1474,61 @@ Odstranit neobjednanou osobu z objednavky
                 "intruder_email":"intruder@email.com"
             }
 + Response 200
+
+            {
+              "results": [
+                {
+                  "id": 2,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": 1966,
+                  "scan_date": 123456789,
+                  "intruder": false
+                },
+                {
+                  "id": 3,
+                  "first_name": "Mirek",
+                  "last_name": "Pospíšil",
+                  "email": "spěch@email.com",
+                  "year_of_birth": 1968,
+                  "scan_date": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 4,
+                  "first_name": "Tonda",
+                  "last_name": "Kudla",
+                  "email": "kudla@email.com",
+                  "year_of_birth": 1978,
+                  "scan_date": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 5,
+                  "first_name": "Milena",
+                  "last_name": "Kurnakova",
+                  "email": "kudrnka@email.com",
+                  "year_of_birth": 1989,
+                  "scan_date": 123456789,
+                  "intruder": false
+                }
+              ],
+              "group_results": [
+                {
+                  "group_result_id": 100,
+                  "group_name": "whole female",
+                  "generate_date": 123456789
+                }
+              ],
+              "departments": [
+                "Sales",
+                "Management",
+                "IT"
+              ]
+            }
 + Response 400
 
 ## Join intruder to existing person in order [/order/partner/{order_id}/join-intruder]
@@ -1428,4 +1549,59 @@ Priradid intrudera k objednane (neodsnimane) osobe
                 "join_person_email":"user@email.com"
             }
 + Response 200
+
+            {
+              "results": [
+                {
+                  "id": 1,
+                  "first_name": "Milal",
+                  "last_name": "Maly",
+                  "email": "spěch@email.com",
+                  "year_of_birth": 1986,
+                  "scan_date": 123456789,
+                  "department": "Sales",
+                  "intruder": false
+                },
+                {
+                  "id": 2,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": 1966,
+                  "scan_date": 123456789,
+                  "intruder": false
+                },
+                {
+                  "id": 4,
+                  "first_name": "Tonda",
+                  "last_name": "Kudla",
+                  "email": "kudla@email.com",
+                  "year_of_birth": 1978,
+                  "scan_date": 123456789,
+                  "department": "Management",
+                  "intruder": false
+                },
+                {
+                  "id": 5,
+                  "first_name": "Milena",
+                  "last_name": "Kurnakova",
+                  "email": "kudrnka@email.com",
+                  "year_of_birth": 1989,
+                  "scan_date": 123456789,
+                  "intruder": false
+                }
+              ],
+              "group_results": [
+                {
+                  "group_result_id": 100,
+                  "group_name": "whole female",
+                  "generate_date": 123456789
+                }
+              ],
+              "departments": [
+                "Sales",
+                "Management",
+                "IT"
+              ]
+            }
 + Response 400
