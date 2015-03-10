@@ -1354,7 +1354,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
 
 + Response 400
 
-## Generate result for partner order [/result/partner/{order_id}/generate]
+## Generate result for partner order [/result/partner/{order_id}/generate-group]
 ### Generate result for partner order [POST]
 Zadost vygenerovani vystupu (skupinovho i jednotlivce).
 Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku ktery byl generovan.
@@ -1369,75 +1369,19 @@ Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku kter
     + Body
     
             {
-                "result_type":"GROUP|SINGLE",
                 "generate_result_ids": [1,2,3],
                 "group_name":"name of group result"
             }
 + Response 200
 
-            {
-              "results": [
-                {
-                  "id": 1,
-                  "first_name": "Milal",
-                  "last_name": "Maly",
-                  "email": "maly@email.com",
-                  "year_of_birth": 1986,
-                  "scan_time": 123456789,
-                  "department": "Sales",
-                  "intruder": false
-                },
-                {
-                  "id": 2,
-                  "first_name": "Tomas",
-                  "last_name": "Skorapka",
-                  "email": "skoto@email.com",
-                  "year_of_birth": 1966,
-                  "scan_time": 123456789,
-                  "intruder": false,
-                  "generate_time": 123456789
-                },
-                {
-                  "id": 3,
-                  "first_name": "Mirek",
-                  "last_name": "Pospíšil",
-                  "email": "spech@email.com",
-                  "year_of_birth": 1968,
-                  "scan_time": 123456789,
-                  "department": "Management",
-                  "intruder": false,
-                  "generate_time": 123456789
-                },
-                {
-                  "id": 4,
-                  "first_name": "Tonda",
-                  "last_name": "Kudla",
-                  "email": "kudla@email.com",
-                  "year_of_birth": 1978,
-                  "scan_time": 123456789,
-                  "department": "Management",
-                  "intruder": false,
-                  "generate_time": 123456789
-                },
-                {
-                  "id": 5,
-                  "first_name": "Milena",
-                  "last_name": "Kurnakova",
-                  "email": "kudrnka@email.com",
-                  "year_of_birth": 1989,
-                  "scan_time": 123456789,
-                  "intruder": false,
-                  "generate_time": 123456789
-                }
-              ],
-              "group_results": [
+            [
                 {
                   "group_result_id": 100,
                   "group_name": "whole female",
                   "generate_time": 123456789
                 }
-              ]
-            }
+            ]
+            
 
 + Response 400
 
