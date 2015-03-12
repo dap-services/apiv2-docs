@@ -943,6 +943,7 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
 ## Partner - order [/order/partner]
 ### New order [POST]
 Vytvoreni nebo editace nove obednavky. Zalzi jestli je vyplneno order_id.
+Person posila email. Jestlize se edituje email existujici persony vyplni se atribut new_email.
 
 + Request (application/json)
 
@@ -954,7 +955,7 @@ Vytvoreni nebo editace nove obednavky. Zalzi jestli je vyplneno order_id.
     + Body
        
             {
-                "order_id": 1,
+                "id": 1,
                 "scanner": {
                     "first_name": {
                         "values": null,
@@ -984,17 +985,17 @@ Vytvoreni nebo editace nove obednavky. Zalzi jestli je vyplneno order_id.
                 "send_instruction": true,
                 "send_result_to_person": true,
                 "send_results_to_consultant": true,
-                
                 "persons": [
                     {
-                      "new_email": "a@aa.aa",
+                      "email": "a@aa.aa",
                       "department": "a"
                     },
                     {
-                      "new_email": "aa@aa.aa"
+                      "email": "aa@aa.aa",
+                      "new_email": "ab@aa.aa"
                     },
                     {
-                      "new_email": "b@b.bb"
+                      "email": "b@b.bb"
                     }
                 ],
                 "departments": [
@@ -1124,6 +1125,7 @@ Načtení detailu objednávky
                 "send_result_to_person": true,
                 "send_results_to_consultant": true,
                 "scanner_url": "http://somescanner.dap-services.com?code=axC89",
+                "id": 7,
                 
                 "persons": [
                     {
@@ -1131,8 +1133,7 @@ Načtení detailu objednávky
                       "department": "a"
                     },
                     {
-                      "email": "aa@aa.aa",
-                      "new_email":"ab@aa.aa"
+                      "email": "aa@aa.aa"
                     },
                     {
                       "email": "b@b.bb"
@@ -1217,8 +1218,7 @@ Převede xls/xlsx příchozí soubor, převede do tvaru použávaný v applikaci
                       "department": "a"
                     },
                     {
-                      "email": "aa@aa.aa",
-                      "new_email":"ab@aa.aa"
+                      "email": "aa@aa.aa"
                     },
                     {
                       "email": "b@b.bb"
@@ -1259,7 +1259,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
             Access-Control-Allow-Origin: *
             X-Authorization: 12124-545-asdf
 
-+ Response 200
++ Response 200 (application/json)
 
             {
               "results": [
@@ -1336,7 +1336,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
 Zadost vygenerovani vystupu (skupinovho i jednotlivce).
 Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku ktery byl generovan.
 
-+ Request
++ Request (application/json)
 
     + Header
 
@@ -1349,7 +1349,7 @@ Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku kter
                 "generate_result_ids": [1,2,3],
                 "group_name":"name of group result"
             }
-+ Response 200
++ Response 200 (application/json)
 
             [
                 {
@@ -1366,7 +1366,7 @@ Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku kter
 ### Remove status intruder from scanned person [POST]
 Zruseni stavu "intruder" pro odsnimanou osobu
 
-+ Request
++ Request (application/json)
 
     + Header
 
@@ -1378,7 +1378,7 @@ Zruseni stavu "intruder" pro odsnimanou osobu
             {
                 "intruder_email":"intruder@email.com"
             }
-+ Response 200
++ Response 200 (application/json)
 
             {
               "results": [
@@ -1443,7 +1443,7 @@ Zruseni stavu "intruder" pro odsnimanou osobu
 ### Remove intruder from order [POST]
 Odstranit neobjednanou osobu z objednavky
 
-+ Request
++ Request (application/json)
 
     + Header
 
@@ -1455,7 +1455,7 @@ Odstranit neobjednanou osobu z objednavky
             {
                 "intruder_email":"intruder@email.com"
             }
-+ Response 200
++ Response 200 (application/json)
 
             {
               "results": [
@@ -1508,7 +1508,7 @@ Odstranit neobjednanou osobu z objednavky
 ### Join intruder to existing person in order [POST]
 Priradid intrudera k objednane (neodsnimane) osobe
 
-+ Request
++ Request (application/json)
 
     + Header
 
@@ -1521,12 +1521,12 @@ Priradid intrudera k objednane (neodsnimane) osobe
                 "intruder_email":"intruder@email.com",
                 "join_person_email":"user@email.com"
             }
-+ Response 200
++ Response 200 (application/json)
 
             {
               "results": [
                 {
-                  "id": 1,
+                  "id": 1,,
                   "first_name": "Milal",
                   "last_name": "Maly",
                   "email": "spech@email.com",
@@ -1590,4 +1590,21 @@ Priradid intrudera k objednane (neodsnimane) osobe
 
             Order invoice
         
++ Response 400
+
+## Send email with instruction [/result/partner/{order_id}/send-instruction]
+### Send email with instruction [POST]
++ Request (application/json)
+    + Header
+    
+            Access-Control-Allow-Origin: *
+            X-Authorization: {authorization_token}
+
+    + Body
+
+            {
+                "email": "abc@abc.cc"
+            }
+
++ Response 200
 + Response 400
