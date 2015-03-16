@@ -835,7 +835,7 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
 
 # Group Admin
 
-Práce s účtem administratora.
+Práce s účtem administratora. Pro přístup je vyžadována role administrátora (businessman).
 
 ## Seznam školení uživatele [/admin/partner/{user_id}/training]
 ### order [POST]
@@ -984,6 +984,133 @@ Potvrzeni školení adminem.
                 "profile": "/account/profile/{user_id}"
             }
             
+## Partner - order [/admin/partner/{user_id}/order/list]
+### Order licence [GET]
+Vrácení všech objednávek uživatele
+
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
+    + Body
+       
+        
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            [
+              {
+                "id": 1,
+                "name": "New partner order",
+                "insert_time": 1231564,
+                "valid_to": 121546516,
+                "status": "open",
+                "scanned_count": 12,
+                "total_count": 50
+              },
+              {
+                "id": 2,
+                "name": "Second partner order",
+                "insert_time": 1431564,
+                "valid_to": 161546516,
+                "status": "open",
+                "scanned_count": 4,
+                "total_count": 50
+              }
+            ]
+            
+## Partner group results [/admin/order/{order_id}/results]
+### Show group results detail [GET]
+Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky.
+
++ Request (multipart/form-data)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
++ Response 200 (application/json)
+
+            {
+              "results": [
+                {
+                  "id": 1,
+                  "first_name": "Milal",
+                  "last_name": "Maly",
+                  "email": "maly@email.com",
+                  "year_of_birth": "1986",
+                  "scan_time": 123456789,
+                  "department": "Sales",
+                  "intruder": true
+                },
+                {
+                  "id": 2,
+                  "first_name": "Tomas",
+                  "last_name": "Skorapka",
+                  "email": "skoto@email.com",
+                  "year_of_birth": "1966",
+                  "scan_time": 123456789,
+                  "intruder": false,
+                  "generate_time": 123456789
+                },
+                {
+                  "id": 3,
+                  "first_name": "Mirek",
+                  "last_name": "Pospíšil",
+                  "email": "spech@email.com",
+                  "year_of_birth": "1968",
+                  "scan_time": 123456789,
+                  "department": "Management",
+                  "intruder": false,
+                  "generate_time": 123456789
+                },
+                {
+                  "id": 4,
+                  "first_name": "Tonda",
+                  "last_name": "Kudla",
+                  "email": "kudla@email.com",
+                  "year_of_birth": "1978",
+                  "scan_time": 123456789,
+                  "department": "Management",
+                  "intruder": false,
+                  "generate_time": 123456789
+                },
+                {
+                  "id": 5,
+                  "first_name": "Milena",
+                  "last_name": "Kurnakova",
+                  "email": "kudrnka@email.com",
+                  "year_of_birth": "1989",
+                  "scan_time": 123456789,
+                  "intruder": false
+                }
+              ],
+              "group_results": [
+                {
+                  "group_result_id": 100,
+                  "group_name": "whole female",
+                  "generate_time": 123456789
+                }
+              ],
+              "departments": [
+                "Sales",
+                "Management",
+                "IT"
+              ]
+            }
+
++ Response 400
+            
 
 #Group Order
 
@@ -1080,7 +1207,7 @@ Person posila email. Jestlize se edituje email existujici persony vyplni se atri
 
 ## Partner - order [/order/partner/list]
 ### Order licence [GET]
-Vrácení všech objednávek uživatele
+Vrácení všech objednávek uživatele (pouze které vlastní)
 
 
 + Request (application/json)
@@ -1124,7 +1251,7 @@ Vrácení všech objednávek uživatele
        
 ## Nacteni detailu objednavky partnera [/order/partner/{order_id}]
 ### Nacteni detailu objednavky partnera [GET]
-Načtení detailu objednávky
+Načtení detailu objednávky - (musí být vlastníkem objednávky)
 
 + Request (application/json)
 
@@ -1297,7 +1424,7 @@ Podle response kodu se zjisti se provedlo.
 
 ## Partner group results [/order/partner/{order_id}/results]
 ### Show group results detail [GET]
-Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky.
+Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky - (musí být vlastníkem objednávky).
 
 + Request (multipart/form-data)
 
