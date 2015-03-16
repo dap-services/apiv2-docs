@@ -283,41 +283,6 @@ Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (p
                 "profile": "/account/profile/{user_id}"
             }
             
-## Seznam školení uživatele [/admin/partner/{user_id}/training]
-### order [POST]
-
-+ Request (application/json)
-
-    + Headers
-
-            Access-Control-Allow-Origin: *
-
-+ Response 200 (application/json)
-
-    + Headers
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            [
-                {
-                    "training_id": 1,
-                    "i18nkey": "nls.training.name.key",
-                    "status": "ORDERED"
-                },
-                {
-                    "training_id": 2,
-                    "i18nkey": "nls.training.name.key",
-                    "status": "NOT_ORDERED"
-                },
-                {
-                    "training_id": 3,
-                    "i18nkey": "nls.training.name.key",
-                    "status": "WAITING"
-                }
-            ]
-
 ## Seznam skolení pouze aktualniho uzivatele [/account/{user_id}/training]
 ### order [POST]
 
@@ -840,9 +805,50 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                     "message": "Chybové hlášení pro generovani group result zakaznika.",
                     "error_code": "error.code.groupresult"
                 }
-            }
+            }           
+            
+# Group Admin
 
-## Seznam business partneru konkretniho obchodnika [/businessman/partner-list]
+Práce s účtem administratora.
+
+## Seznam školení uživatele [/admin/partner/{user_id}/training]
+### order [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            [
+                {
+                    "training_id": 1,
+                    "i18nkey": "nls.training.name.key",
+                    "status": "ORDERED"
+                },
+                {
+                    "training_id": 2,
+                    "i18nkey": "nls.training.name.key",
+                    "status": "NOT_ORDERED"
+                },
+                {
+                    "training_id": 3,
+                    "i18nkey": "nls.training.name.key",
+                    "status": "WAITING"
+                }
+            ]
+
+
+
+## Seznam business partneru konkretniho obchodnika [/admin/partner/list]
 ### List businesspartner [GET]
 + Response 200 (application/json)
 
@@ -878,7 +884,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "role": "PARTNER"
             }]
             
-## Operace pro zobrazení uživatele. [/businessman/partner/{user_id}]
+## Operace pro zobrazení uživatele. [/admin/partner/{user_id}]
 ### Get user account detail [GET]
 + Response 200 (application/json)
 
