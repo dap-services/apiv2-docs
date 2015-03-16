@@ -370,44 +370,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
 
 
 
-## Languages Collection [/language/en]
-### List all Languages [GET]
-+ Response 200 (application/json)
 
-    + Header
-
-            Accept: application/json
-
-    + Body
-
-            [{
-                "name": "EN",
-                "id": 1
-            }, {
-                "name": "DE",
-                "id": 2
-            }, {
-                "name": "CZE",
-                "id": 3
-            }]
-
-## Countries Collection [/country/en]
-### List all Countries [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            Accept: application/json
-
-    + Body
-
-            [{
-                "name": "USA",
-                "id": 1
-            },{
-                "name": "Canada",
-                "id": 2
-            }]
 
 ## Seznam vsech zakazniku pro konkretniho business partnera [/account/{user_id}/customer]
 ### List all Customers [GET]
@@ -738,21 +701,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 }
             }
 
-## Download pdf [/download/{hash_result}/{token}]
-### Download [GET]
 
-            
-+ Response 200
-
-    + Header
-
-            Content-Type: application/pdf
-            Content-Disposition: attachment; filename="jump.pdf"
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            text 
 
 ## Seznam nebo jednoho person konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/generateresult]
 ### List Diag Group Result [POST]
@@ -1668,6 +1617,8 @@ Priradid intrudera k objednane (neodsnimane) osobe
             }
 + Response 400
 
+#Group Result
+
 ## Download result file [/result/{generate_result_id}/download/invoker?{token}]
 ### Download result file [GET]
 + Request
@@ -1706,3 +1657,60 @@ Priradid intrudera k objednane (neodsnimane) osobe
 
 + Response 200
 + Response 400
+
+#Group Others
+
+## Languages Collection [/language/en]
+### List all Languages [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Accept: application/json
+
+    + Body
+
+            [{
+                "name": "EN",
+                "id": 1
+            }, {
+                "name": "DE",
+                "id": 2
+            }, {
+                "name": "CZE",
+                "id": 3
+            }]
+
+## Countries Collection [/country/en]
+### List all Countries [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Accept: application/json
+
+    + Body
+
+            [{
+                "name": "USA",
+                "id": 1
+            },{
+                "name": "Canada",
+                "id": 2
+            }]
+            
+## Download pdf [/download/{hash_result}/{token}]
+### Download [GET]
+
+            
++ Response 200
+
+    + Header
+
+            Content-Type: application/pdf
+            Content-Disposition: attachment; filename="jump.pdf"
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            text 
