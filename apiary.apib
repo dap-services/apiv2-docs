@@ -402,30 +402,8 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "profile": "/account/profile/{user_id}"
             }
 
-## Potvrzeni treninku adminem [/admin/partner/{user_id}/training/{training_id}/confirm]
-### confirm [POST]
 
-Potvrzeni školení adminem.
 
-+ Request (application/json)
-
-    + Headers
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "training_id": 1,
-                "message":"message_text"
-            }
-
-+ Response 200
-
-            {
-                "training_id": 1,
-                "profile": "/account/profile/{user_id}"
-            }
 
 ## Languages Collection [/language/en]
 ### List all Languages [GET]
@@ -593,7 +571,6 @@ Potvrzeni školení adminem.
                     "error_code": "error.code.editcustomer"
                 }
             }
-
 
 ## Seznam scanu konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/result]
 ### List Diag Result [GET]
@@ -812,7 +789,6 @@ Potvrzeni školení adminem.
 
             text 
 
-
 ## Seznam nebo jednoho person konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/generateresult]
 ### List Diag Group Result [POST]
 + Request (application/json)
@@ -928,6 +904,54 @@ Potvrzeni školení adminem.
                 "license_valid_to": 222222,
                 "ordered":true
             }
+            
+## Licence - history [/admin/partner/{user_id}/license]
+### Create new licence [POST]
++ Request (application/json)
+
+            {
+               "license_valid_from": 111111,
+                "license_valid_to": 222222,
+            }
+
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"orderlicense_license_is_confirmed","type":"success"}
+            }
+            
+## Potvrzeni treninku adminem [/admin/partner/{user_id}/training/{training_id}/confirm]
+### confirm [POST]
+
+Potvrzeni školení adminem.
+
++ Request (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "training_id": 1,
+                "message":"message_text"
+            }
+
++ Response 200
+
+            {
+                "training_id": 1,
+                "profile": "/account/profile/{user_id}"
+            }
+            
 
 ## Licence - history [/account/{user_id}/licence]
 ### List all licences [GET]
@@ -1140,8 +1164,8 @@ Vrácení všech objednávek uživatele
               }
             ]
        
-## Licence - order [/order/partner/{order_id}]
-### Order licence [GET]
+## Nacteni detailu objednavky partnera [/order/partner/{order_id}]
+### Nacteni detailu objednavky partnera [GET]
 Načtení detailu objednávky
 
 + Request (application/json)
