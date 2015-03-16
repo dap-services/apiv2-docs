@@ -282,16 +282,50 @@ Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (p
                 "user_id": 12312334,
                 "profile": "/account/profile/{user_id}"
             }
+            
+## Seznam školení uživatele [/admin/partner/{user_id}/training]
+### order [POST]
 
-# Seznam školení uživatele [/account/{user_id}/training]
++ Request (application/json)
 
-Práce se školeními uživatele. Autorizovaný resource.
+    + Headers
 
-> TODO training vs trainings.
+            Access-Control-Allow-Origin: *
 
-## GET
++ Response 200 (application/json)
 
-Seznam školení uživatele.
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            [
+                {
+                    "training_id": 1,
+                    "i18nkey": "nls.training.name.key",
+                    "status": "ORDERED"
+                },
+                {
+                    "training_id": 2,
+                    "i18nkey": "nls.training.name.key",
+                    "status": "NOT_ORDERED"
+                },
+                {
+                    "training_id": 3,
+                    "i18nkey": "nls.training.name.key",
+                    "status": "WAITING"
+                }
+            ]
+
+## Seznam skolení pouze aktualniho uzivatele [/account/{user_id}/training]
+### order [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: *
 
 + Response 200 (application/json)
 
@@ -368,7 +402,7 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                 "profile": "/account/profile/{user_id}"
             }
 
-## Potvrzeni trenings adminem [/account/{user_id}/training/{training_id}/confirm]
+## Potvrzeni treninku adminem [/admin/partner/{user_id}/training/{training_id}/confirm]
 ### confirm [POST]
 
 Potvrzeni školení adminem.
