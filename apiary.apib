@@ -158,8 +158,8 @@ Seznam json atributů:
                 "phone_number": "123 123 1234",
                 "login": "login_name",
                 "vat_number": "vat_number",
-                "licence_start": "25.2.2014",
-                "licence_end": "25.2.2015",
+                "license_valid_from": 111111,
+                "license_valid_to": 222222,
                 "ordered":true
             }
 
@@ -879,13 +879,11 @@ Potvrzeni školení adminem.
     + Body
 
             [{
-                "licence_start": "25.2.2014",
-                "licence_end": "25.2.2015",
-                "licence_when":"2.2.2014"
+                "license_valid_from": 111111,
+                "license_valid_to": 222222,
             },{
-                "licence_start": "25.2.2013",
-                "licence_end": "25.2.2014",
-                "licence_when":"2.2.2013"
+               "license_valid_from": 111111,
+                "license_valid_to": 222222,
             }]
 
 
@@ -893,8 +891,8 @@ Potvrzeni školení adminem.
 + Request (application/json)
 
             {
-                "licence_start": "25.2.2013",
-                "licence_end": "25.2.2014"
+               "license_valid_from": 111111,
+                "license_valid_to": 222222,
             }
 
 + Response 200 (application/json)
