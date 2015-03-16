@@ -837,7 +837,7 @@ Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zprá
 
 Práce s účtem administratora. Pro přístup je vyžadována role administrátora (businessman).
 
-## Seznam školení uživatele [/admin/partner/{user_id}/training]
+## Seznam školení uživatele [/admin/user/{user_id}/training]
 ### order [POST]
 
 + Request (application/json)
@@ -874,7 +874,7 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
 
 
 
-## Seznam business partneru konkretniho obchodnika [/admin/partner/list]
+## Seznam business partneru konkretniho obchodnika [/admin/user/list]
 ### List businesspartner [GET]
 + Response 200 (application/json)
 
@@ -910,7 +910,7 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                 "role": "PARTNER"
             }]
             
-## Operace pro zobrazení uživatele. [/admin/partner/{user_id}]
+## Operace pro zobrazení uživatele. [/admin/user/{user_id}]
 ### Get user account detail [GET]
 + Response 200 (application/json)
 
@@ -937,8 +937,8 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                 "ordered":true
             }
             
-## Licence - history [/admin/partner/{user_id}/license]
-### Create new licence [POST]
+## Licence - new license [/admin/user/{user_id}/license]
+### Create new license [POST]
 + Request (application/json)
 
             {
@@ -959,7 +959,7 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                     {"i18nKey":"orderlicense_license_is_confirmed","type":"success"}
             }
             
-## Potvrzeni treninku adminem [/admin/partner/{user_id}/training/{training_id}/confirm]
+## Potvrzeni treninku adminem [/admin/user/{user_id}/training/{training_id}/confirm]
 ### confirm [POST]
 
 Potvrzeni školení adminem.
@@ -984,7 +984,7 @@ Potvrzeni školení adminem.
                 "profile": "/account/profile/{user_id}"
             }
             
-## Partner - order [/admin/partner/{user_id}/order/list]
+## Partner - order [/admin/user/{user_id}/order/list]
 ### Order licence [GET]
 Vrácení všech objednávek uživatele
 
