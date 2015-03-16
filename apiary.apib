@@ -805,8 +805,85 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
                     "message": "Chybové hlášení pro generovani group result zakaznika.",
                     "error_code": "error.code.groupresult"
                 }
-            }           
+            }     
             
+
+## Licence - history [/account/{user_id}/licence]
+### List all licences [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            [{
+                "license_valid_from": 111111,
+                "license_valid_to": 222222,
+            },{
+               "license_valid_from": 111111,
+                "license_valid_to": 222222,
+            }]
+
+
+### Create new licence [POST]
++ Request (application/json)
+
+            {
+               "license_valid_from": 111111,
+                "license_valid_to": 222222,
+            }
+
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"orderlicense_license_is_confirmed","type":"success"}
+            }
+
+## Licence - order [/account/{user_id}/licence/order]
+Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zpráva, kterou uživatel napsal) a email osobě s potvrzením objednávky
+### Order licence [POST]
+
++ Request (application/json)
+
+            {
+                "message": "message"
+            }
+
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"orderlicense_success_code","type":"success"}
+            }
+            
++ Response 400 
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"orderlicense_error_code","type":"error"}
+            }
+
 # Group Admin
 
 Práce s účtem administratora.
@@ -959,81 +1036,7 @@ Potvrzeni školení adminem.
             }
             
 
-## Licence - history [/account/{user_id}/licence]
-### List all licences [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            [{
-                "license_valid_from": 111111,
-                "license_valid_to": 222222,
-            },{
-               "license_valid_from": 111111,
-                "license_valid_to": 222222,
-            }]
-
-
-### Create new licence [POST]
-+ Request (application/json)
-
-            {
-               "license_valid_from": 111111,
-                "license_valid_to": 222222,
-            }
-
-+ Response 200 (application/json)
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "messages": 
-                    {"i18nKey":"orderlicense_license_is_confirmed","type":"success"}
-            }
-
-## Licence - order [/account/{user_id}/licence/order]
-Výsledkem je email adminovi ohledně objednání licence (v emailu bude i zpráva, kterou uživatel napsal) a email osobě s potvrzením objednávky
-### Order licence [POST]
-
-+ Request (application/json)
-
-            {
-                "message": "message"
-            }
-
-+ Response 200 (application/json)
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "messages": 
-                    {"i18nKey":"orderlicense_success_code","type":"success"}
-            }
-            
-+ Response 400 
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-
-    + Body
-
-            {
-                "messages": 
-                    {"i18nKey":"orderlicense_error_code","type":"error"}
-            }
+#Group Order
 
 ## Partner - order [/order/partner]
 ### New order [POST]
