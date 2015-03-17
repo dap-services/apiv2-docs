@@ -1111,6 +1111,29 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
 
 + Response 400
             
+## List of customer orders for specified user [/admin/user/{user_id}/customer-order/list]
+### List of customer orders [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            [{
+                "customer_id": "customer_id_1",
+                "company_name": "company_name",
+                "date": "date",
+                "city": "city",
+                "country_code": "ISO country code"
+            },{
+                "customer_id": "customer_id_2",
+                "company_name": "company_name",
+                "date": "date",
+                "city": "city",
+                "country_code": "ISO country code"
+            }]
 
 #Group Order
 
