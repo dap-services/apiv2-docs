@@ -184,8 +184,7 @@ Seznam json atributů:
                 "phone_number": "123 123 1234",
                 "login": "login_name",
                 "vat_number": "vat_number",
-                "password": "password",
-                "verify_password": "verify_password"
+                
             }
 
 + Response 200 (application/json)
@@ -200,7 +199,36 @@ Seznam json atributů:
                 "messages": 
                     {"i18nKey":"user_update_success_code","type":"success"}
             }
+            
+            
+## User password change [/account/{user_id}/password-change]
+### User password change [POST]
 
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "verify_password": "PASSWORD",
+                "vat_number": "vat_number"
+            }
+            
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"user_password_change_success_code","type":"success"}
+            }
 
 ## Registrace uživatele [/account/registration]
 
