@@ -163,9 +163,7 @@ Seznam json atributů:
                 "ordered":true
             }
 
-### Create new account [PUT]
-
-> TODO jaký je rozdíl mezi [PUT] account a [POST] account/registration?
+### Update user account [PUT]
 
 + Request (application/json)
 
@@ -192,19 +190,17 @@ Seznam json atributů:
 
 + Response 200 (application/json)
 
+    + Header
+
+            Access-Control-Allow-Origin: *
+            
+    + Body
+
             {
-                "account_id": 12312334,
-                "profile": "/account/profile/{user_id}"
+                "messages": 
+                    {"i18nKey":"user_update_success_code","type":"success"}
             }
 
-+ Response 400 (application/json)
-
-            {
-                "error": {
-                    "message": "Chybové hlášení pro upravu uživatele.",
-                    "error_code": "error.code.updateaccount"
-                }
-            }
 
 ## Registrace uživatele [/account/registration]
 
