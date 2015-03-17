@@ -983,7 +983,22 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                     {"i18nKey":"orderlicense_license_is_confirmed","type":"success"}
             }
             
-## Potvrzeni treninku adminem [/admin/user/{user_id}/training/{training_id}/confirm]
+## Get user training order [/admin/user/{user_id}/training/{training_id}/order]
+### order [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: *
+
++ Response 200
+
+            {
+                "training_id": 1
+            }
+            
+## Confirm user training [/admin/user/{user_id}/training/{training_id}/confirm]
 ### confirm [POST]
 
 Potvrzeni školení adminem.
