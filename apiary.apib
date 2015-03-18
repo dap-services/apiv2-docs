@@ -908,6 +908,7 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
 
     + Body
 
+            
             [{
                 "company_id": "company_id1",
                 "company_name": "company_name1",
@@ -915,7 +916,8 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                 "license_valid_to": 222222,
                 "email": "email@email.cz",
                 "phone":"123456789",
-                "role": "CUSTOMER"
+                "role": "CUSTOMER",
+                "confirm_waiting":false
             },{
                 "company_id": "company_id2",
                 "company_name": "company_name2",
@@ -923,7 +925,8 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                 "license_valid_to": 222222,
                 "email": "email@email.cz",
                 "phone":"123456789",
-                "role": "CUSTOMER"
+                "role": "CUSTOMER",
+                "confirm_waiting":false
             },{
                 "company_id": "company_id3",
                 "company_name": "company_name3",
@@ -931,8 +934,10 @@ Práce s účtem administratora. Pro přístup je vyžadována role administrát
                 "license_valid_to": 222222,
                 "email": "email@email.cz",
                 "phone":"123456789",
-                "role": "PARTNER"
+                "role": "PARTNER",
+                "confirm_waiting":true
             }]
+            
             
 ## Operace pro zobrazení uživatele. [/admin/user/{user_id}]
 ### Get user account detail [GET]
