@@ -1852,7 +1852,7 @@ Priradid intrudera k objednane (neodsnimane) osobe
 
 #Group Others
 
-## Languages Collection [/language/en]
+## Languages Collection [/language]
 ### List all Languages [GET]
 + Response 200 (application/json)
 
@@ -1863,17 +1863,17 @@ Priradid intrudera k objednane (neodsnimane) osobe
     + Body
 
             [{
-                "name": "EN",
+                "i18nKey": "en",
                 "id": 1
             }, {
-                "name": "DE",
+                "i18nKey": "de",
                 "id": 2
             }, {
-                "name": "CZE",
+                "i18nKey": "cz",
                 "id": 3
             }]
 
-## Countries Collection [/country/en]
+## Countries Collection [/country]
 ### List all Countries [GET]
 + Response 200 (application/json)
 
@@ -1884,10 +1884,10 @@ Priradid intrudera k objednane (neodsnimane) osobe
     + Body
 
             [{
-                "name": "USA",
+                "i18nkey": "DE",
                 "id": 1
             },{
-                "name": "Canada",
+                "i18nkey": "CA",
                 "id": 2
             }]
             
