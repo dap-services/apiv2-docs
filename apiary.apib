@@ -511,18 +511,11 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
 + Response 200 (application/json)
 
             {
-                "customer_id": 12312334,
-                "profile": "/account/profile/{user_id}"
+                "messages": 
+                    {"i18nKey":"order_edit_success_code","type":"success"}
             }
 
-+ Response 400 (application/json)
 
-            {
-                "error": {
-                    "message": "Chybové hlášení pro editaci zakaznika.",
-                    "error_code": "error.code.editcustomer"
-                }
-            }
 
 ## Seznam scanu konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/result]
 ### List Diag Result [GET]
