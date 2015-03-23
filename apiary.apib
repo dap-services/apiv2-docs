@@ -1496,6 +1496,7 @@ Podle response kodu se zjisti se provedlo.
 ## Partner group results [/order/partner/{order_id}/results]
 ### Show group results detail [GET]
 Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky - (musí být vlastníkem objednávky).
+Possible result status : scanned, computing_results, permission_waiting, computing_fail, generated
 
 + Request (multipart/form-data)
 
@@ -1516,7 +1517,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "year_of_birth": "1986",
                   "scan_time": 123456789,
                   "department": "Sales",
-                  "intruder": true
+                  "intruder": true,
+                  "status": "scanned"
                 },
                 {
                   "id": 2,
@@ -1526,7 +1528,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "year_of_birth": "1966",
                   "scan_time": 123456789,
                   "intruder": false,
-                  "generate_time": 123456789
+                  "generate_time": 123456789,
+                "status": "generated"
                 },
                 {
                   "id": 3,
@@ -1537,7 +1540,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "department": "Management",
                   "intruder": false,
-                  "generate_time": 123456789
+                  "generate_time": 123456789,
+                  "status": "generated"
                 },
                 {
                   "id": 4,
@@ -1549,6 +1553,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "department": "Management",
                   "intruder": false,
                   "generate_time": 123456789
+                  "status": "generated"
                 },
                 {
                   "id": 5,
@@ -1557,7 +1562,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "email": "kudrnka@email.com",
                   "year_of_birth": "1989",
                   "scan_time": 123456789,
-                  "intruder": false
+                  "intruder": false,
+                  "status": "computing_results"
                 }
               ],
               "group_results": [
