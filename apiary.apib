@@ -1100,7 +1100,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "department": "Sales",
                   "intruder": true,
-                  "generated_status": "scanned"
+                  "generate_status": "scanned"
                 },
                 {
                   "id": 2,
@@ -1111,7 +1111,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "intruder": false,
                   "generate_time": 123456789,
-                  "generated_status": "generated"
+                  "generate_status": "generated"
                 },
                 {
                   "id": 3,
@@ -1123,7 +1123,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "department": "Management",
                   "intruder": false,
                   "generate_time": 123456789,
-                  "generated_status": "generated"
+                  "generate_status": "generated"
                 },
                 {
                   "id": 4,
@@ -1135,7 +1135,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "department": "Management",
                   "intruder": false,
                   "generate_time": 123456789,
-                  "generated_status": "generated"
+                  "generate_status": "generated"
                 },
                 {
                   "id": 5,
@@ -1145,7 +1145,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "year_of_birth": "1989",
                   "scan_time": 123456789,
                   "intruder": false,
-                  "generated_status": "generated"
+                  "generate_status": "generated"
                 }
               ],
               "group_results": [
@@ -1501,7 +1501,7 @@ Podle response kodu se zjisti se provedlo.
 ## Partner group results [/order/partner/{order_id}/results]
 ### Show group results detail [GET]
 Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavky - (musí být vlastníkem objednávky).
-<p>Possible generated status : <ul><li>scanned</li> <li>computing_results</li> <li>permission_waiting</li> <li>computing_fail</li> <li>generated</li></p>
+<p>Possible generate status : <ul><li>scanned</li> <li>computing_results</li> <li>permission_waiting</li> <li>computing_fail</li> <li>generated</li></p>
 
 + Request (multipart/form-data)
 
@@ -1523,7 +1523,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "department": "Sales",
                   "intruder": true,
-                  "generated_status": "scanned"
+                  "generate_status": "scanned"
                 },
                 {
                   "id": 2,
@@ -1534,7 +1534,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "intruder": false,
                   "generate_time": 123456789,
-                "generated_status": "generated"
+                  "generate_status": "generated"
                 },
                 {
                   "id": 3,
@@ -1546,7 +1546,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "department": "Management",
                   "intruder": false,
                   "generate_time": 123456789,
-                  "generated_status": "generated"
+                  "generate_status": "generated"
                 },
                 {
                   "id": 4,
@@ -1558,7 +1558,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "department": "Management",
                   "intruder": false,
                   "generate_time": 123456789,
-                  "generated_status": "generated"
+                  "generate_status": "generated"
                 },
                 {
                   "id": 5,
@@ -1568,7 +1568,7 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "year_of_birth": "1989",
                   "scan_time": 123456789,
                   "intruder": false,
-                  "generated_status": "computing_results"
+                  "generate_status": "computing_results"
                 }
               ],
               "group_results": [
