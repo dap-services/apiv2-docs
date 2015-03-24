@@ -1867,6 +1867,159 @@ Priradid intrudera k objednane (neodsnimane) osobe
 + Response 200
 + Response 400
 
+#Group Customer
+
+## Customer - order create/update [/order/customer]
+### [POST]
+<p>Create a new order or edit an existed one. Create or update is differentiated by order id attribute.</p>
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
+    + Body
+       
+            {
+                "id": 1,
+                "scanner": {
+                    "first_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "last_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "department": {
+                        "values": "dep1;dep2;dep3",
+                        "label": null,
+                        "selected": true
+                    },
+                    "custom_item": {
+                        "values": null,
+                        "label": "Name of our favorite pet.",
+                        "selected": true
+                    }
+                },
+                "name": "New partner order",
+                "scanner_language":"en"
+            }
+        
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"order_create_success_code","type":"success"}
+            }
+            
++ Response 400 
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"order_bad_request_code","type":"error"}
+            }
+
+## Customer - order list [/order/customer/list]
+### [GET]
+Returns all customer order (if actual user is owner)
+
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
+    + Body
+       
+        
++ Response 200 (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            [
+              {
+                "id": 1,
+                "name": "New partner order",
+                "insert_time": 1231564,
+              },
+              {
+                "id": 2,
+                "name": "Second partner order",
+                "insert_time": 1431564,
+              }
+            ]
+            
+## Customer - order detail [/order/customer/{order_id}]
+### [GET]
+Returns detail of customer order (if actual user is owner)
+
++ Request (application/json)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+            X-Authorization: 12124-545-asdf
+
++ Response 200 (application/json)
+    
+    + Header
+
+            Access-Control-Allow-Origin: *
+    
+    + Body
+       
+            {
+                "scanner": {
+                    "first_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "last_name": {
+                        "values": null,
+                        "label": null,
+                        "selected": true
+                    },
+                    "department": {
+                        "values": "dep1;dep2;dep3",
+                        "label": null,
+                        "selected": true
+                    },
+                    "custom_item": {
+                        "values": null,
+                        "label": "Name of our favorite pet.",
+                        "selected": true
+                    }
+                },
+                "name": "New partner order",
+                "scanner_language":"en",
+                "scanner_url": "http://somescanner.dap-services.com?code=axC89",
+                "id": 7,
+            }
+
 #Group Others
 
 ## Languages Collection [/language]
