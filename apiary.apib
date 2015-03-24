@@ -1869,8 +1869,8 @@ Priradid intrudera k objednane (neodsnimane) osobe
 
 #Group Customer
 
-## Customer - order create/update [/order/customer]
-### [POST]
+## Customer [/order/customer]
+### order create/update [POST]
 <p>Create a new order or edit an existed one. Create or update is differentiated by order id attribute.</p>
 
 + Request (application/json)
@@ -1936,8 +1936,8 @@ Priradid intrudera k objednane (neodsnimane) osobe
                     {"i18nKey":"order_bad_request_code","type":"error"}
             }
 
-## Customer - order list [/order/customer/list]
-### [GET]
+## Customer [/order/customer/list]
+### order list [GET]
 Returns all customer order (if actual user is owner)
 
 
@@ -1972,8 +1972,8 @@ Returns all customer order (if actual user is owner)
               }
             ]
             
-## Customer - order detail [/order/customer/{order_id}]
-### [GET]
+## Customer [/order/customer/{order_id}]
+### order detail [GET]
 Returns detail of customer order (if actual user is owner)
 
 + Request (application/json)
