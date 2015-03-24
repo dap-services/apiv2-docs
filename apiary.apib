@@ -1496,6 +1496,17 @@ Podle response kodu se zjisti se provedlo.
 
 + Response 200
 
+    + Header
+
+            Access-Control-Allow-Origin: *
+    
+    + Body
+    
+            {
+                invoice_price: 123654,
+                invoice_text: "text"
+            }
+
 + Response 400
 
 ## Partner group results [/order/partner/{order_id}/results]
