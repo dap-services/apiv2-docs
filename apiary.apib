@@ -1627,7 +1627,18 @@ Vrátí pole vsech výsledků jednotlivců nebo skupin, podle typu vysledku kter
             ]
             
 
-+ Response 400
++ Response 400 
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"error_code_not_enought_people_in_group","type":"error"}
+            }
 
 ## Remove status intruder from scanned person [/order/partner/{order_id}/allow-intruder]
 ### Remove status intruder from scanned person [POST]
