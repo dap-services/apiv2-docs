@@ -2065,7 +2065,7 @@ Return init data for order options (scanner language).
             
 ## Customer [/order/customer/{order_id}/results]
 ### Result details [GET]
-<p>Returns result details of customer order (if actual user is owner)</p>
+<p>Returns result details and group result details of customer order (if actual user is owner)</p>
 <p>Possible generate status : <ul><li>scanned</li> <li>computing_results</li> <li>permission_waiting</li> <li>computing_fail</li> <li>generated</li></p>
 
 + Request (multipart/form-data)
@@ -2130,24 +2130,7 @@ Return init data for order options (scanner language).
                   "scan_time": 123456789,
                   "generate_status": "computing_results"
                 }
-              ]
-            }
-            
-## Customer [/order/customer/{order_id}/group-results]
-### Group result details [GET]
-<p>Returns group result details of customer order (if actual user is owner)</p>
-<p>Possible generate status : <ul><li>computing_results</li> <li>permission_waiting</li> <li>computing_fail</li> <li>generated</li></p>
-
-+ Request (multipart/form-data)
-
-    + Header
-
-            Access-Control-Allow-Origin: *
-            X-Authorization: 12124-545-asdf
-
-+ Response 200 (application/json)
-
-            {
+              ],
               "group_results": [
                 {
                   "group_result_id": 100,
@@ -2157,7 +2140,7 @@ Return init data for order options (scanner language).
                 }
               ]
             }
-            
+
 ## Customer [/result/customer/{order_id}/generate-group]
 ### Generate result [POST]
 <p>A new result generate invoker.</p>
