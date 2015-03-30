@@ -705,19 +705,16 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
 + Response 200 (application/json)
 
             {
-                "contact": "OK",
-                "profile": "/account/profile/{user_id}"
+                "messages": 
+                    {"i18nKey":"contact_us_success","type":"success"}
             }
 
 + Response 400 (application/json)
 
-            {
-                "error": {
-                    "message": "Chybové hlášení pro odeslani zpravy.",
-                    "error_code": "error.code.sendmessage"
-                }
+           {
+                "messages": 
+                    {"i18nKey":"contact_us_error","type":"error"}
             }
-
 
 
 ## Seznam nebo jednoho person konkretniho zakaznika konkretniho business partnera [/account/{user_id}/customer/{customer_id}/generateresult]
