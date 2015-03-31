@@ -115,6 +115,19 @@ Seznam json atributů:
                 "messages": 
                     {"i18nKey":"error_code_login","type":"error"}
             }
+            
++ Response 400 (Bad Request)
+
+    + Header
+
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            {
+                "messages": 
+                    {"i18nKey":"login_bad_input","type":"error"}
+            }
 
 ## Users Login [/account/loginbad]
 #
