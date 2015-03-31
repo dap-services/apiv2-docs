@@ -274,17 +274,20 @@ Seznam json atributů:
 + Response 200 (application/json)
 
             {
-                "user_id": 12312334,
-                "profile": "/account/profile/{user_id}"
+                "messages": 
+                    {"i18nKey":"registration_success_code","type":"success"}
+                    > {"i18nKey":"registration_success_code_email_failed","type":"warning"}
+                    
             }
 
 + Response 400 (application/json)
 
             {
-                "error": {
-                    "message": "Chybové hlášení pro vytvoření uživatele.",
-                    "error_code": "error.code.registration"
-                }
+                "messages": 
+                    {"i18nKey":"registration_bad_input","type":"error"}
+                    > {"i18nKey":"registration_bad_input_login_already_exists","type":"error"}
+                    > {"i18nKey":"registration_bad_input_password_confirmation_not_equal","type":"error"}
+                    
             }
 
 ## Users Login [/account/registrationconfirm]
