@@ -319,8 +319,15 @@ Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (p
     + Body
 
             {
-                "user_id": 12312334,
-                "profile": "/account/profile/{user_id}"
+                "messages": 
+                    {"i18nKey":"registration_confirm_success","type":"success"}
+            }
+
++ Response 400 (application/json)
+
+            {
+                "messages": 
+                    {"i18nKey":"registration_confirm_bad_request","type":"error"}
             }
             
 ## Seznam skolení pouze aktualniho uzivatele [/account/{user_id}/training]
