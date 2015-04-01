@@ -1341,6 +1341,16 @@ Vrácení všech objednávek uživatele (pouze které vlastní)
                 "status": "open",
                 "scanned_count": 4,
                 "total_count": 50
+              },
+              {
+                "id": 3,
+                "name": "Third partner order",
+                "insert_time": 1431564,
+                "valid_to": 161546516,
+                "status": "closed",
+                "scanned_count": 1,
+                "total_count": 10,
+                "invoice_price": 100
               }
             ]
        
@@ -1553,7 +1563,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "department": "Sales",
                   "intruder": true,
-                  "generate_status": "scanned"
+                  "generate_status": "scanned",
+                  "affected":true
                 },
                 {
                   "id": 2,
@@ -1564,7 +1575,8 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
                   "scan_time": 123456789,
                   "intruder": false,
                   "generate_time": 123456789,
-                  "generate_status": "generated"
+                  "generate_status": "generated",
+                  "affected":false
                 },
                 {
                   "id": 3,
