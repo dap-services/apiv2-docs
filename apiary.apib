@@ -364,13 +364,8 @@ Potvrzení registrace uživatele. Posílá se klíč, který uživatel dostal (p
                 }
             ]
 
-# Konkretni školení uživatele [/account/{user_id}/training/{training_id}]
-
-Práce se školeními uživatele. Autorizovaný resource.
-
-> TODO Pravděpodobně samostatný resource pro app
-
-## GET
+## Get a training order configuration [/account/{user_id}/training/{training_id}]
+### GET
 
 Seznam školení uživatele.
 
@@ -385,13 +380,13 @@ Seznam školení uživatele.
                 {
                     "training_id": 1,
                     "name": "nls.training.name.key",
-                    "status": "NOT_ORDERED"
+                    "status": "NOT_ORDERED",
+                    "price": 1000,
+                    "currency": "Euro"
                 }
 
-## Objednani trenings [/account/{user_id}/training/{training_id}/order]
+## Order a new training [/account/{user_id}/training/{training_id}/order]
 ### order [POST]
-
-Objednání školení uživatele. Výsledkem je odeslání emailu administrátorovi s žádostí o školení.
 
 + Request (application/json)
 
@@ -409,14 +404,18 @@ Objednání školení uživatele. Výsledkem je odeslání emailu administrátor
 + Response 200
 
             {
-                "training_id": 1,
-                "profile": "/account/profile/{user_id}"
+                "messages": 
+                    {"i18nKey":"training_order_success","type":"success"}
             }
+            
++ Response 400
 
-
-
-
-
+            {
+                "messages": 
+                    {"i18nKey":"training_order_bad_input","type":"success"}
+                    > || {"i18nKey":"training_already_ordered","type":"success"}
+                    
+            }
 
 ## Seznam vsech zakazniku pro konkretniho business partnera [/account/{user_id}/customer]
 ### List all Customers [GET]
