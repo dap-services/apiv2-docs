@@ -1628,6 +1628,25 @@ Vrati seznam resultu jednotlivcu i skupin ktere existuji pro zadanne id obednavk
 
 + Response 400
 
+## Download order statistics file [/order/{order_id}/download-statistics/invoker?{token}]
+### [GET]
++ Request
+    + Header
+    
+            Access-Control-Allow-Origin: *
+    
++ Response 200
+
+    + Header
+
+            Content-Type: application/pdf
+            Content-Disposition: attachment; filename="statistics.xlsx"
+            Access-Control-Allow-Origin: *
+
+    + Body
+
+            Order statistics
+        
 ## Generate result for partner order [/result/{order_id}/generate-group]
 ### Generate result for partner order [POST]
 Zadost vygenerovani vystupu (skupinovho i jednotlivce).
