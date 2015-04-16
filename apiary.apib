@@ -1799,7 +1799,7 @@ Zruseni stavu "intruder" pro odsnimanou osobu
     + Body
     
             {
-                "intruder_email":"intruder@email.com"
+                "id": 7
             }
 + Response 200 (application/json)
 
@@ -1876,7 +1876,7 @@ Odstranit neobjednanou osobu z objednavky
     + Body
     
             {
-                "intruder_email":"intruder@email.com"
+                "id":"5"
             }
 + Response 200 (application/json)
 
@@ -1941,7 +1941,8 @@ Priradid intrudera k objednane (neodsnimane) osobe
     + Body
     
             {
-                "intruder_email":"intruder@email.com",
+                "order_id": 25,
+                "id": 9,
                 "join_person_email":"user@email.com"
             }
 + Response 200 (application/json)
